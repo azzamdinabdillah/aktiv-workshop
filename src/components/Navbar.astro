@@ -3,6 +3,7 @@ import Button from "./Button.astro";
 ---
 
 <div class="flex justify-between items-center p-[32px]">
+  <!-- Logo Section -->
   <div class="flex gap-2 items-center">
     <img
       src={`${import.meta.env.ICONS_FOLDER}/logo.svg`}
@@ -12,14 +13,170 @@ import Button from "./Button.astro";
     <p class="text-24 font-bold text-black">AKTIV</p>
   </div>
 
-  <div class="flex gap-32 text-16 font-medium text-gray">
-    <a href="">View My Booking</a>
-    <a href="">Workshop</a>
-    <a href="">Community</a>
-    <a href="">Testimone</a>
+  <!-- Desktop Navigation -->
+  <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
+    <a href="" class="hover:text-black transition-colors">View My Booking</a>
+    <a href="" class="hover:text-black transition-colors">Workshop</a>
+    <a href="" class="hover:text-black transition-colors">Community</a>
+    <a href="" class="hover:text-black transition-colors">Testimone</a>
   </div>
 
-  <Button variant="green" size="small" icon="wa.svg" iconAlt="Phone Call">
-    Contact CS
-  </Button>
+  <!-- Desktop Contact Button -->
+  <div class="hidden lg:block">
+    <Button variant="green" size="small" icon="wa.svg" iconAlt="Phone Call">
+      Contact CS
+    </Button>
+  </div>
+
+  <!-- Mobile Hamburger Button -->
+  <button
+    id="mobile-menu-button"
+    class="lg:hidden flex flex-col gap-1 p-2"
+    aria-label="Toggle mobile menu"
+  >
+    <span class="w-6 h-0.5 bg-black transition-all duration-300" id="line1"
+    ></span>
+    <span class="w-6 h-0.5 bg-black transition-all duration-300" id="line2"
+    ></span>
+    <span class="w-6 h-0.5 bg-black transition-all duration-300" id="line3"
+    ></span>
+  </button>
 </div>
+
+<!-- Mobile Drawer -->
+<div
+  id="mobile-drawer"
+  class="fixed inset-0 z-50 lg:hidden transform -translate-x-full transition-transform duration-300 ease-in-out"
+>
+  <!-- Backdrop -->
+  <div id="drawer-backdrop" class="absolute inset-0 bg-black bg-opacity-50">
+  </div>
+
+  <!-- Drawer Content -->
+  <div class="relative w-80 max-w-[85vw] h-full bg-white shadow-xl">
+    <!-- Drawer Header -->
+    <div class="flex justify-between items-center p-6 border-b">
+      <div class="flex gap-2 items-center">
+        <img
+          src={`${import.meta.env.ICONS_FOLDER}/logo.svg`}
+          alt="Logo"
+          class="w-8 h-8"
+        />
+        <p class="text-20 font-bold text-black">AKTIV</p>
+      </div>
+      <button
+        id="close-drawer-button"
+        class="p-2 hover:bg-gray-100 rounded-full transition-colors"
+        aria-label="Close menu"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation -->
+    <nav class="p-6">
+      <div class="flex flex-col gap-6">
+        <a
+          href=""
+          class="text-18 font-medium text-gray hover:text-black transition-colors py-2 border-b border-gray-100"
+        >
+          View My Booking
+        </a>
+        <a
+          href=""
+          class="text-18 font-medium text-gray hover:text-black transition-colors py-2 border-b border-gray-100"
+        >
+          Workshop
+        </a>
+        <a
+          href=""
+          class="text-18 font-medium text-gray hover:text-black transition-colors py-2 border-b border-gray-100"
+        >
+          Community
+        </a>
+        <a
+          href=""
+          class="text-18 font-medium text-gray hover:text-black transition-colors py-2 border-b border-gray-100"
+        >
+          Testimone
+        </a>
+      </div>
+    </nav>
+
+    <!-- Drawer Footer -->
+    <div class="absolute bottom-6 left-6 right-6">
+      <Button
+        variant="green"
+        size="medium"
+        icon="wa.svg"
+        iconAlt="Phone Call"
+        class="w-full"
+      >
+        Contact CS
+      </Button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Mobile drawer functionality
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
+  const closeDrawerButton = document.getElementById("close-drawer-button");
+  const drawerBackdrop = document.getElementById("drawer-backdrop");
+  const mobileDrawer = document.getElementById("mobile-drawer");
+  const line1 = document.getElementById("line1");
+  const line2 = document.getElementById("line2");
+  const line3 = document.getElementById("line3");
+
+  function openDrawer() {
+    mobileDrawer.classList.remove("-translate-x-full");
+    document.body.style.overflow = "hidden";
+
+    // Animate hamburger to X
+    line1.style.transform = "rotate(45deg) translate(5px, 5px)";
+    line2.style.opacity = "0";
+    line3.style.transform = "rotate(-45deg) translate(7px, -6px)";
+  }
+
+  function closeDrawer() {
+    mobileDrawer.classList.add("-translate-x-full");
+    document.body.style.overflow = "";
+
+    // Reset hamburger animation
+    line1.style.transform = "";
+    line2.style.opacity = "";
+    line3.style.transform = "";
+  }
+
+  // Event listeners
+  mobileMenuButton?.addEventListener("click", openDrawer);
+  closeDrawerButton?.addEventListener("click", closeDrawer);
+  drawerBackdrop?.addEventListener("click", closeDrawer);
+
+  // Close drawer on escape key
+  document.addEventListener("keydown", (e) => {
+    if (
+      e.key === "Escape" &&
+      !mobileDrawer.classList.contains("-translate-x-full")
+    ) {
+      closeDrawer();
+    }
+  });
+
+  // Close drawer when clicking on navigation links
+  const drawerLinks = mobileDrawer?.querySelectorAll("nav a");
+  drawerLinks?.forEach((link) => {
+    link.addEventListener("click", closeDrawer);
+  });
+</script>
