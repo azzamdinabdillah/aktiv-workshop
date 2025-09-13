@@ -1,0 +1,76 @@
+---
+import Button from "./Button.astro";
+
+export interface Props {
+  title: string;
+  subtitle?: string;
+  emoji?: string;
+  buttonText?: string;
+  buttonVariant?: "orange" | "primary" | "secondary";
+  buttonSize?: "small" | "medium" | "large";
+  buttonIcon?: string;
+  buttonIconAlt?: string;
+  showDecorativeLine?: boolean;
+  decorativeLineSrc?: string;
+  maxWidth?: string;
+  className?: string;
+}
+
+const {
+  title,
+  subtitle,
+  emoji = "",
+  buttonText = "See All",
+  buttonVariant = "orange",
+  buttonSize = "medium",
+  buttonIcon = "white-orange-arrow-right.svg",
+  buttonIconAlt = "Arrow Right",
+  showDecorativeLine = true,
+  decorativeLineSrc = "http://localhost:3845/assets/ed724b51cdbd6d3bab98911e47e01afe23bd8718.svg",
+  maxWidth = "1176px",
+  className = "",
+} = Astro.props;
+---
+
+<div
+  class={`flex flex-wrap gap-4 md:gap-6 lg:gap-8 items-center justify-start w-full max-w-[${maxWidth}] mx-auto px-4 md:px-8 xl:px-0 py-6 md:py-8 ${className}`}
+>
+  <!-- Title Section -->
+  <div
+    class="capitalize font-black leading-normal relative shrink-0 text-black text-32 whitespace-nowrap"
+  >
+    <p class="mb-0">{title} {emoji}</p>
+    {subtitle && <p>{subtitle}</p>}
+  </div>
+
+  <!-- Decorative Line -->
+  {
+    showDecorativeLine && (
+      <div class="flex-1 h-0 min-h-px relative shrink-0 hidden md:block">
+        <div class="absolute bottom-0 left-0 right-0 top-[-1px]">
+          <img
+            alt="Decorative line"
+            src={decorativeLineSrc}
+            class="block max-w-none w-full h-full"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  <!-- Action Button -->
+  {
+    buttonText && (
+      <div class="shrink-0">
+        <Button
+          variant={buttonVariant}
+          size={buttonSize}
+          icon={buttonIcon}
+          iconAlt={buttonIconAlt}
+        >
+          {buttonText}
+        </Button>
+      </div>
+    )
+  }
+</div>

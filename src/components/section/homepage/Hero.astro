@@ -1,0 +1,124 @@
+---
+// Benefits data
+const benefits = [
+  {
+    id: 1,
+    title: "More Creativity",
+    description: "Creative ideas for your daily tasks",
+    icon: `${import.meta.env.ICONS_FOLDER}/promise-1.svg`,
+    alt: "More Creativity",
+  },
+  {
+    id: 2,
+    title: "Career Planning",
+    description: "Clear plans for your career growth",
+    icon: `${import.meta.env.ICONS_FOLDER}/promise-2.svg`,
+    alt: "Career Planning",
+  },
+  {
+    id: 3,
+    title: "Good Communication",
+    description: "Effective ways to communicate well",
+    icon: `${import.meta.env.ICONS_FOLDER}/promise-3.svg`,
+    alt: "Good Communication",
+  },
+];
+---
+
+<!-- Hero -->
+<div class="relative">
+    <div class="blue-gradient">
+      <div
+        class="flex flex-col gap-24 justify-center items-center max-w-[550px] md:max-w-[600px] lg:max-w-[800px] mx-auto pt-10 md:pt-20 lg:pt-[95px] px-2"
+      >
+        <div
+          class="p-1 pr-3 md:pr-4 lg:pr-5 gap-1.5 md:gap-2 lg:gap-2.5 flex items-center bg-light-blue rounded-full w-fit"
+        >
+          <img
+            src={`${import.meta.env.ICONS_FOLDER}/medal-icons.svg`}
+            alt="Medal Icon"
+            class="w-8 h-8 lg:w-12 lg:h-12"
+          />
+          <h1 class="text-sm md:text-base lg:text-lg font-semibold text-blue">
+            #1 Best Workshop in Indonesia
+          </h1>
+        </div>
+
+        <h1
+          class="text-[28px] md:text-3xl lg:text-[42px] font-bold leading-snug md:leading-[130%] lg:leading-[140%] text-white text-center"
+        >
+          Revitalize your daily routine with powerful productivity 💪
+        </h1>
+
+        <button
+          class="rounded-full text-white p-2 md:p-3 lg:p-4 w-fit bg-white/10"
+        >
+          <div
+            class="px-5 py-2.5 md:px-7 md:py-3.5 lg:px-9 lg:py-4 bg-orange rounded-full text-sm md:text-base lg:text-lg font-semibold"
+          >
+            Get Started &gt;
+          </div>
+        </button>
+      </div>
+      <div class="">
+        <img
+          src={`${import.meta.env.IMG_FOLDER}/hero.png`}
+          alt="Hero Image"
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <div
+      class="bg-white rounded-6 lg:rounded-[24px] lg:absolute -bottom-[10%] lg:left-1/2 lg:-translate-x-1/2 w-full max-w-[1176px]"
+    >
+      <div
+        class="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-6 items-center justify-start px-4 md:px-8 lg:px-[52px] py-6 md:py-8"
+      >
+        <!-- Header Section -->
+        <div
+          class="flex flex-col gap-2 md:gap-3 lg:gap-3 items-start justify-start w-full lg:w-auto lg:flex-1"
+        >
+          <h2
+            class="text-32 font-black leading-tight md:leading-[130%] lg:leading-[130%] text-black capitalize"
+          >
+            What awaits you after you join 🧐
+          </h2>
+          <p
+            class="text-sm md:text-base lg:text-[16px] font-medium leading-normal text-gray"
+          >
+            Our programs are designed to<br class="hidden md:block lg:block" />
+            develop any ages 😉
+          </p>
+        </div>
+
+        <!-- Benefits Cards -->
+        <div
+          class="flex flex-col md:flex-row lg:flex-row gap-4 md:gap-4 lg:gap-6 w-full lg:flex-[3]"
+        >
+          {
+            benefits.map((benefit) => (
+              <div class="benefit-card bg-white border border-gray-200 rounded-4 lg:rounded-[16px] flex flex-col gap-3 items-center justify-center p-4 md:p-4 lg:p-[18px] w-full cursor-pointer">
+                <div class="relative w-14 h-14 lg:w-16 lg:h-16">
+                  <img
+                    src={benefit.icon}
+                    alt={benefit.alt}
+                    class="benefit-icon w-full h-full object-contain"
+                  />
+                </div>
+                <div class="flex flex-col gap-1 items-center justify-start text-center">
+                  <h3 class="text-18 font-semibold text-black leading-normal">
+                    {benefit.title}
+                  </h3>
+                  <p class="text-16 font-medium text-gray leading-normal max-w-[209px]">
+                    {benefit.description}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
