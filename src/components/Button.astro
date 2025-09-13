@@ -1,0 +1,80 @@
+---
+export interface Props {
+  variant?: "green" | "blue" | "orange" | "light-blue" | "black";
+  size?: "small" | "medium" | "large";
+  icon?: string;
+  iconAlt?: string;
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  class?: string;
+}
+
+const {
+  variant = "green",
+  size = "small",
+  icon,
+  iconAlt = "Icon",
+  href,
+  type = "button",
+  class: className = "",
+  ...rest
+} = Astro.props;
+
+// Color variants
+const colorClasses = {
+  green: "bg-green text-white",
+  blue: "bg-blue text-white",
+  orange: "bg-orange text-white",
+  "light-blue": "bg-light-blue text-blue",
+  black: "bg-black text-white",
+};
+
+// Size variants
+const sizeClasses = {
+  small: "text-16 font-semibold px-4 h-[40px] md:px-6 md:h-[48px]",
+  medium: "text-18 font-semibold px-6 h-[48px] md:px-8 md:h-[56px] lg:h-[56px]",
+  large: "text-18 font-semibold px-8 h-[56px] md:px-10 md:h-[64px] lg:h-[64px]",
+};
+
+// Icon size variants
+const iconSizeClasses = {
+  small: "w-5 h-5 lg:w-6 lg:h-6",
+  medium: "w-6 h-6 lg:w-7 lg:h-7",
+  large: "w-7 h-7 lg:w-8 lg:h-8",
+};
+
+const baseClasses =
+  "flex items-center gap-2.5 rounded-full justify-center transition-all duration-200 hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2";
+const colorClass = colorClasses[variant];
+const sizeClass = sizeClasses[size];
+const iconSizeClass = iconSizeClasses[size];
+
+const buttonClasses =
+  `${baseClasses} ${colorClass} ${sizeClass} ${className}`.trim();
+---
+
+{
+  href ? (
+    <a href={href} class={buttonClasses} {...rest}>
+      <slot />
+      {icon && (
+        <img
+          src={`${import.meta.env.ICONS_FOLDER}/${icon}`}
+          alt={iconAlt}
+          class={iconSizeClass}
+        />
+      )}
+    </a>
+  ) : (
+    <button type={type} class={buttonClasses} {...rest}>
+      <slot />
+      {icon && (
+        <img
+          src={`${import.meta.env.ICONS_FOLDER}/${icon}`}
+          alt={iconAlt}
+          class={iconSizeClass}
+        />
+      )}
+    </button>
+  )
+}
