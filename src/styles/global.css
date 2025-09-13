@@ -5,9 +5,9 @@
   --color-blue: #0268fb;
   --color-light-blue: #dfefff;
   --color-orange: #fc9b4c;
-  --color-black: #09093C;
-  --color-green: #1F8A70;
-  --color-gray: #757C98;
+  --color-black: #09093c;
+  --color-green: #1f8a70;
+  --color-gray: #757c98;
 }
 
 * {
@@ -26,14 +26,50 @@
   @apply gap-4 md:gap-6 lg:gap-8;
 }
 
-.text-24{
-    @apply text-lg md:text-xl lg:text-2xl;
+.text-24 {
+  @apply text-lg md:text-xl lg:text-2xl;
 }
 
 .text-18 {
-  @apply text-sm md:text-base lg:text-lg;
+  @apply text-base lg:text-lg;
 }
 
-.text-16{
-    @apply text-sm md:text-base;
+.text-16 {
+  @apply text-sm md:text-base;
+}
+
+.rounded-6 {
+  @apply rounded-lg md:rounded-xl lg:rounded-2xl;
+}
+
+.rounded-4 {
+  @apply rounded-md md:rounded-lg lg:rounded-xl;
+}
+
+/* Benefit card hover effects */
+.benefit-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.benefit-card:hover {
+  @apply transform -translate-y-2 shadow-lg;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #0268fb;
+}
+
+.benefit-card:hover .benefit-icon {
+  @apply transform scale-110;
+}
+
+.benefit-card:hover h3 {
+  @apply text-blue;
+}
+
+.benefit-icon {
+  @apply transition-transform duration-300 ease-in-out;
+}
+
+.benefit-card h3 {
+  @apply transition-colors duration-300 ease-in-out;
 }
