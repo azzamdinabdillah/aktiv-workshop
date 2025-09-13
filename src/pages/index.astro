@@ -6,25 +6,31 @@ import Navbar from "../components/Navbar.astro"
 <BaseLayout title="Home">
 	<Navbar />
     <!-- Hero -->
-	 <div class="blue-gradient">
-		<div class="flex flex-col gap-24 justify-center items-center max-w-[550px] md:max-w-[600px] lg:max-w-[800px] mx-auto pt-10 md:pt-20 lg:pt-[95px] px-2">
-			<div class="p-1 pr-3 md:pr-4 lg:pr-5 gap-1.5 md:gap-2 lg:gap-2.5 flex items-center bg-light-blue rounded-full w-fit">
-				<img src={`${import.meta.env.ICONS_FOLDER}/medal-icons.svg`} alt="Medal Icon" class="w-8 h-8 lg:w-12 lg:h-12" />
-				<h1 class="text-18 font-semibold text-blue">#1 Best Workshop in Indonesia</h1>
-			</div>
-
-			<h1 class="text-[28px] md:text-3xl lg:text-[42px] font-bold leading-snug md:leading-[130%] lg:leading-[140%] text-white text-center">
-				Revitalize your daily routine with powerful productivity 💪
-			</h1>
-
-			<button class="rounded-full text-white p-2 md:p-3 lg:p-4 w-fit bg-white/10">
-				<div class="px-5 py-2.5 md:px-7 md:py-3.5 lg:px-9 lg:py-4 bg-orange rounded-full text-sm md:text-base lg:text-lg font-semibold">
-					Get Started &gt;
+	 <div class="relative">
+		 <div class="blue-gradient">
+			<div class="flex flex-col gap-24 justify-center items-center max-w-[550px] md:max-w-[600px] lg:max-w-[800px] mx-auto pt-10 md:pt-20 lg:pt-[95px] px-2">
+				<div class="p-1 pr-3 md:pr-4 lg:pr-5 gap-1.5 md:gap-2 lg:gap-2.5 flex items-center bg-light-blue rounded-full w-fit">
+					<img src={`${import.meta.env.ICONS_FOLDER}/medal-icons.svg`} alt="Medal Icon" class="w-8 h-8 lg:w-12 lg:h-12" />
+					<h1 class="text-18 font-semibold text-blue">#1 Best Workshop in Indonesia</h1>
 				</div>
-			</button>
-		</div>
-		<div class="">
-			<img src={`${import.meta.env.IMG_FOLDER}/hero.png`} alt="Hero Image" class="h-full w-full object-cover" />
-		</div>
+	
+				<h1 class="text-[28px] md:text-3xl lg:text-[42px] font-bold leading-snug md:leading-[130%] lg:leading-[140%] text-white text-center">
+					Revitalize your daily routine with powerful productivity 💪
+				</h1>
+	
+				<button class="rounded-full text-white p-2 md:p-3 lg:p-4 w-fit bg-white/10">
+					<div class="px-5 py-2.5 md:px-7 md:py-3.5 lg:px-9 lg:py-4 bg-orange rounded-full text-sm md:text-base lg:text-lg font-semibold">
+						Get Started &gt;
+					</div>
+				</button>
+			</div>
+			<div class="">
+				<img src={`${import.meta.env.IMG_FOLDER}/hero.png`} alt="Hero Image" class="h-full w-full object-cover" />
+			</div>
+		 </div>
+
+		 <div>
+			
+		 </div>
 	 </div>
 </BaseLayout>
