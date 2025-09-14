@@ -1,0 +1,272 @@
+---
+import HeaderSection from "../../HeaderSection.astro";
+
+// Testimonial data
+const testimonials = [
+  {
+    id: 1,
+    quote: "The support from the behind-the-scenes team is noteworthy. They are responsive, helpful, and genuinely invested in their members ❤️.",
+    author: "Otter Catto",
+    role: "Mother of Tenz",
+    image: "testi-1.png",
+    rating: 5
+  },
+  {
+    id: 2,
+    quote: "Amazing workshop experience! The instructors are knowledgeable and the community is incredibly supportive. Highly recommended!",
+    author: "Sarah Johnson",
+    role: "Web Developer",
+    image: "testi-1.png",
+    rating: 5
+  },
+  {
+    id: 3,
+    quote: "The best learning platform I've ever used. The content is top-notch and the support team is always there to help.",
+    author: "Mike Chen",
+    role: "UI/UX Designer",
+    image: "testi-1.png",
+    rating: 5
+  }
+];
+---
+
+<div class="max-w-1176 mx-auto padding-section">
+  <HeaderSection
+    title="Let’s Hear what people"
+    subtitle="say about our workshop"
+    emoji="💗"
+    buttonText="See All"
+    buttonVariant="orange"
+    buttonSize="medium"
+    buttonIcon="white-orange-arrow-right.svg"
+    buttonIconAlt="Arrow Right"
+  />
+
+  <!-- Testimonial Slider -->
+  <div class="relative w-full max-w-1176 mx-auto mt-6 md:mt-8">
+    <div class="relative w-full">
+      <!-- Testimonial slides container -->
+      <div id="testimonial-slider" class="relative w-full">
+        {testimonials.map((testimonial, index) => (
+          <div
+            class={`testimonial-slide transition-opacity duration-1000 ease-in-out ${
+              index === 0 ? 'opacity-100' : 'opacity-0 absolute inset-0'
+            }`}
+            data-slide={index}
+          >
+            <div class="flex flex-col lg:flex-row bg-white overflow-hidden shadow-lg rounded-2xl">
+              <!-- Left side - Decorative background with icons -->
+              <div
+                class="relative w-full lg:w-[436px] h-[250px] md:h-[300px] lg:h-auto bg-no-repeat bg-cover bg-center overflow-hidden"
+                style={`background-image: url(${import.meta.env.IMG_FOLDER}/bg-testi.png);`}
+              >
+                <img
+                  style="filter: drop-shadow(-0px -0px 10px rgba(0, 0, 0, .5));"
+                  src={`${import.meta.env.IMG_FOLDER}/${testimonial.image}`}
+                  alt={testimonial.author}
+                  class="h-[90%] w-[90%] lg:w-[85%] lg:h-[85%] object-contain absolute bottom-0 left-1/2 -translate-x-1/2"
+                />
+              </div>
+
+              <!-- Right side - Testimonial content -->
+              <div class="flex-1 p-6 md:p-8 lg:p-[42px] flex flex-col justify-between blue-gradient text-white">
+                <!-- Testimonial text -->
+                <div class="mb-6 md:mb-8 lg:mb-[42px] text-white">
+                  <blockquote class="text-lg md:text-2xl lg:text-[38px] leading-relaxed md:leading-relaxed lg:leading-[1.6] font-semibold line-clamp-4">
+                    "{testimonial.quote}"
+                  </blockquote>
+                </div>
+
+                <!-- Author info -->
+                <div class="flex flex-row justify-between items-center gap-4 md:gap-6">
+                  <div class="flex flex-col gap-1">
+                    <h4 class="text-base md:text-lg lg:text-[18px] font-semibold">
+                      {testimonial.author}
+                    </h4>
+                    <p class="text-sm md:text-base lg:text-[16px] font-medium">
+                      {testimonial.role}
+                    </p>
+                  </div>
+
+                  <!-- Rating stars -->
+                  <div class="flex items-center gap-1">
+                    <div class="flex gap-1">
+                      {Array.from({ length: testimonial.rating }).map((_, i) => (
+                        <svg
+                          class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Navigation arrows -->
+      <button
+        id="prev-btn"
+        class="absolute -left-3 md:left-4 lg:left-[-24px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full p-2 md:p-3 lg:p-[12px] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 z-10"
+      >
+        <svg
+          class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"
+          ></path>
+        </svg>
+      </button>
+
+      <button
+        id="next-btn"
+        class="absolute -right-3 md:right-4 lg:right-[-24px] top-1/2 -translate-y-1/2 bg-white border border-gray-200 rounded-full p-2 md:p-3 lg:p-[12px] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 z-10"
+      >
+        <svg
+          class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-gray-600"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  class TestimonialSlider {
+    slides: NodeListOf<Element>;
+    prevBtn: HTMLElement | null;
+    nextBtn: HTMLElement | null;
+    currentSlide: number;
+    totalSlides: number;
+    autoplayInterval: ReturnType<typeof setInterval> | null;
+    autoplayDelay: number;
+    isTransitioning: boolean;
+    clickDelay: number;
+
+    constructor() {
+      this.slides = document.querySelectorAll('.testimonial-slide');
+      this.prevBtn = document.getElementById('prev-btn');
+      this.nextBtn = document.getElementById('next-btn');
+      this.currentSlide = 0;
+      this.totalSlides = this.slides.length;
+      this.autoplayInterval = null;
+      this.autoplayDelay = 3000; // 2 seconds
+      this.isTransitioning = false;
+      this.clickDelay = 800; // 800ms delay between clicks
+
+      this.init();
+    }
+
+    init() {
+      // Event listeners
+      this.prevBtn?.addEventListener('click', () => this.prevSlide());
+      this.nextBtn?.addEventListener('click', () => this.nextSlide());
+
+      // Pause autoplay on hover
+      const sliderContainer = document.getElementById('testimonial-slider');
+      sliderContainer?.addEventListener('mouseenter', () => this.pauseAutoplay());
+      sliderContainer?.addEventListener('mouseleave', () => this.startAutoplay());
+
+      // Start autoplay
+      this.startAutoplay();
+    }
+
+    showSlide(index: number) {
+      // Prevent multiple rapid clicks
+      if (this.isTransitioning) {
+        return;
+      }
+
+      this.isTransitioning = true;
+
+      // Disable buttons during transition
+      this.disableButtons();
+
+      // Hide all slides
+      this.slides.forEach((slide: Element) => {
+        slide.classList.remove('opacity-100');
+        slide.classList.add('opacity-0');
+      });
+
+      // Show current slide
+      this.slides[index].classList.remove('opacity-0');
+      this.slides[index].classList.add('opacity-100');
+
+      this.currentSlide = index;
+
+      // Reset transition flag and enable buttons after animation completes
+      setTimeout(() => {
+        this.isTransitioning = false;
+        this.enableButtons();
+      }, this.clickDelay);
+    }
+
+    nextSlide() {
+      const nextIndex = (this.currentSlide + 1) % this.totalSlides;
+      this.showSlide(nextIndex);
+    }
+
+    prevSlide() {
+      const prevIndex = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+      this.showSlide(prevIndex);
+    }
+
+    disableButtons() {
+      this.prevBtn?.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      this.nextBtn?.classList.add('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+    }
+
+    enableButtons() {
+      this.prevBtn?.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+      this.nextBtn?.classList.remove('opacity-50', 'cursor-not-allowed', 'pointer-events-none');
+    }
+
+    startAutoplay() {
+      this.pauseAutoplay(); // Clear any existing interval
+      this.autoplayInterval = setInterval(() => {
+        // Only autoplay if not transitioning
+        if (!this.isTransitioning) {
+          this.nextSlide();
+        }
+      }, this.autoplayDelay);
+    }
+
+    pauseAutoplay() {
+      if (this.autoplayInterval) {
+        clearInterval(this.autoplayInterval);
+        this.autoplayInterval = null;
+      }
+    }
+
+    // Public method to restart autoplay (useful for external control)
+    restartAutoplay() {
+      this.startAutoplay();
+    }
+  }
+
+  // Initialize slider when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    new TestimonialSlider();
+  });
+</script>
