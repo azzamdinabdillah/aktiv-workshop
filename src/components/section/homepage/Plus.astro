@@ -1,0 +1,95 @@
+---
+import Button from "../../Button.astro";
+
+const benefits = [
+  {
+    id: 1,
+    icon: "plus-1.svg",
+    title: "In-Depth Learning from Experts Instructor",
+    description: "We feature instructors with strong field-specific expertise.",
+  },
+  {
+    id: 2,
+    icon: "plus-2.svg",
+    title: "Tangible Results",
+    description:
+      "Our students are highly engaged and supportive of our community.",
+  },
+  {
+    id: 3,
+    icon: "plus-3.svg",
+    title: "Supportive Learning Environment",
+    description: "We feature instructors with strong field-specific expertise.",
+  },
+  {
+    id: 4,
+    icon: "plus-4.svg",
+    title: "Community Support",
+    description: "We feature instructors with strong field-specific expertise.",
+  },
+  {
+    id: 5,
+    icon: "plus-5.svg",
+    title: "Networking Opportunities With Other",
+    description: "We feature instructors with strong field-specific expertise.",
+  },
+  {
+    id: 6,
+    icon: "plus-6.svg",
+    title: "Learning Flexibility",
+    description:
+      "We offer a variety of workshops that you can learn from every day.",
+  },
+];
+---
+
+<section class="padding-section">
+  <div class="max-w-1176 mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-8 md:mb-10 lg:mb-12">
+      <h2 class="text-32 font-black text-black mb-0">
+        Get acquainted with us! 🙌🏻
+      </h2>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-10 lg:mb-12"
+    >
+      {
+        benefits.map((benefit) => (
+          <div class="benefit-card bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200">
+            <div class="flex gap-3 mb-3 items-center">
+              <div class="benefit-icon flex-shrink-0 w-12 h-12 md:w-14 md:h-14">
+                <img
+                  src={`${import.meta.env.ICONS_FOLDER}/${benefit.icon}`}
+                  alt={benefit.title}
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3 class="text-18 font-semibold text-black leading-relaxed flex-1">
+                {benefit.title}
+              </h3>
+            </div>
+            <p class="text-16 font-medium text-gray leading-relaxed">
+              {benefit.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center">
+      <Button
+        variant="orange"
+        size="medium"
+        icon="white-orange-arrow-right.svg"
+        href="#"
+        class="inline-flex items-center gap-3"
+      >
+        Learn More
+      </Button>
+    </div>
+  </div>
+</section>
