@@ -21,6 +21,10 @@
   background: linear-gradient(0deg, #5b8ce9 0%, #4eb6f5 100%);
 }
 
+.blue-gradient-darker {
+  background: linear-gradient(278deg, #5B8CE9 0%, #4EB6F5 50%, #5B8CE9 100%);
+}
+
 .gap-24 {
   @apply gap-4 md:gap-5 lg:gap-6;
 }

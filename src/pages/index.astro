@@ -6,21 +6,30 @@ import Categories from "../components/section/homepage/Categories.astro";
 import TrendingWorkshop from "../components/section/homepage/TrendingWorkshop.astro";
 import Testimonial from "../components/section/homepage/Testimonial.astro";
 import Plus from "../components/section/homepage/Plus.astro";
+import Cta from "../components/section/homepage/Cta.astro";
 ---
 
 <BaseLayout title="Home">
   <Navbar />
-  <Hero/>
+  <Hero />
   <div class="lg:pt-[180px] bg-gray-blue">
-	  <Categories/>
+    <Categories />
   </div>
   <div class="bg-gray-blue py-0 md:py-10 lg:py-[68px]">
-    <TrendingWorkshop/>
+    <TrendingWorkshop />
   </div>
   <div class="bg-white py-0 md:py-[18px]">
-    <Testimonial/>
+    <Testimonial />
   </div>
   <div class="bg-white py-0 md:py-10 lg:py-[68px]">
-    <Plus/>
+    <Plus />
   </div>
+  <div
+    class="bg-gray-blue py-0 md:py-[18px] bg-no-repeat bg-center bg-cover"
+    style=`background-image: url(${import.meta.env.IMG_FOLDER}/cta-pattern.png);`
+  >
+    <Cta />
+  </div>
+
+  <div class="h-dvh"></div>
 </BaseLayout>
