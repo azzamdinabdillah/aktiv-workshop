@@ -118,7 +118,7 @@ const currentStatus = statusConfig[status];
 
       <!-- Status Badge -->
       <div
-        class={`absolute top-2 left-2 md:top-3 md:left-3 ${currentStatus.bgColor} flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-500 ease-out group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-black/25 relative z-50 w-fit`}
+        class={`absolute top-2 left-2 md:top-3 md:left-3 ${currentStatus.bgColor} flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-500 ease-out group-hover:scale-110 group-hover:shadow-xl group-hover:shadow-black/25 z-50 w-fit`}
       >
         <img
           src={currentStatus.icon}
@@ -165,7 +165,7 @@ const currentStatus = statusConfig[status];
 
       <!-- Workshop Title -->
       <h2
-        class="font-semibold text-[#09093c] text-sm md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-500 ease-out group-hover:text-orange relative z-10"
+        class="font-semibold text-[#09093c] text-base md:text-lg lg:text-xl leading-[1.3] md:leading-[1.35] lg:leading-[1.4] capitalize line-clamp-2 transition-colors duration-500 ease-out group-hover:text-orange relative z-10"
       >
         {title}
       </h2>
