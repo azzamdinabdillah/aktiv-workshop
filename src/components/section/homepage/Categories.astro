@@ -1,14 +1,77 @@
 ---
 import HeaderSection from "../../HeaderSection.astro";
+
+// Categories data array
+const categories = [
+  {
+    id: 1,
+    title: "Programming",
+    description: "HTML, CSS & more",
+    icon: `category-1.svg`,
+    bgColor: "rgba(235,87,87,0.09)",
+  },
+  {
+    id: 2,
+    title: "Self Improvement",
+    description: "Invest, Tax & more",
+    icon: "category-2.svg",
+    bgColor: "rgba(2,104,251,0.09)",
+  },
+  {
+    id: 3,
+    title: "Music",
+    description: "Piano, Sing, & more",
+    icon: "category-3.svg",
+    bgColor: "rgba(31,138,112,0.09)",
+  },
+  {
+    id: 4,
+    title: "Art & Design",
+    description: "Balet, Run & more",
+    icon: "category-4.svg",
+    bgColor: "rgba(254,208,73,0.09)",
+  },
+];
 ---
 
-<HeaderSection
-  title="We have several"
-  subtitle="workshop categories"
-  emoji="🌟"
-  buttonText="See All"
-  buttonVariant="orange"
-  buttonSize="medium"
-  buttonIcon="white-orange-arrow-right.svg"
-  buttonIconAlt="Arrow Right"
-/>
+<div class="max-w-1176 mx-auto padding-section flex flex-col gap-5 md:gap-8">
+  <HeaderSection
+    title="We have several"
+    subtitle="workshop categories"
+    emoji="🌟"
+    buttonText="See All"
+    buttonVariant="orange"
+    buttonSize="medium"
+    buttonIcon="white-orange-arrow-right.svg"
+    buttonIconAlt="Arrow Right"
+  />
+
+  <div
+    class="flex flex-wrap gap-4 lg:gap-6 justify-start items-start flex-col md:grid grid-cols-2 xl:grid-cols-4"
+  >
+    {
+      categories.map((category) => (
+        <div class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-3 md:p-5 flex gap-3 items-center justify-start box-border flex-shrink-0 w-full transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 cursor-pointer group border border-gray-100 hover:border-blue">
+          <div
+            class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 p-3 box-border transition-all duration-300 ease-in-out group-hover:scale-105"
+            style={`background-color: ${category.bgColor}`}
+          >
+            <img
+              src={`${import.meta.env.ICONS_FOLDER}/${category.icon}`}
+              alt={category.title}
+              class="w-8 h-8 block"
+            />
+          </div>
+          <div class="flex flex-col gap-px justify-center md:justify-between h-[53px] flex-1 min-w-0">
+            <h3 class="font-poppins font-semibold text-18 text-[#09093c] m-0 leading-normal">
+              {category.title}
+            </h3>
+            <p class="font-poppins font-medium text-16 text-[#757c98] m-0 leading-normal">
+              {category.description}
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>

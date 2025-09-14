@@ -26,14 +26,14 @@ const {
   buttonIcon = "white-orange-arrow-right.svg",
   buttonIconAlt = "Arrow Right",
   showDecorativeLine = true,
-  decorativeLineSrc = "http://localhost:3845/assets/ed724b51cdbd6d3bab98911e47e01afe23bd8718.svg",
+  decorativeLineSrc = `${import.meta.env.ICONS_FOLDER}/header-title-line.svg`,
   maxWidth = "1176px",
   className = "",
 } = Astro.props;
 ---
 
 <div
-  class={`flex flex-wrap gap-4 md:gap-6 lg:gap-8 items-center justify-start w-full max-w-[${maxWidth}] mx-auto px-4 md:px-8 xl:px-0 py-6 md:py-8 ${className}`}
+  class={`flex flex-wrap gap-4 md:gap-6 lg:gap-8 items-center justify-between w-full max-w-[${maxWidth}] mx-auto ${className}`}
 >
   <!-- Title Section -->
   <div
