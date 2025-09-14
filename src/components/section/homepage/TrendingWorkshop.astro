@@ -1,0 +1,158 @@
+---
+import HeaderSection from "../../HeaderSection.astro";
+import WorkshopCard from "../../WorkshopCard.astro";
+
+// Workshop data array
+const workshops = [
+  {
+    id: 1,
+    instructorName: "Megamore S Qie",
+    instructorTitle: "Motivator Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "open" as const,
+    date: "Tue, 30 May 2024",
+    time: "09:30 AM",
+    title:
+      "Mastering the Art of Public Speaking: Practical Tips and Powerful Techniques",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 2,
+    instructorName: "Feri Ahmad",
+    instructorTitle: "Full-Stack Dev Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "started" as const,
+    date: "Fri, 24 May 2024",
+    time: "09:30 AM",
+    title: "Mastering HTML & CSS: Intensive Workshop for Beginners",
+    category: "Programming",
+    price: "Rp160.000",
+  },
+  {
+    id: 3,
+    instructorName: "Ichsan Smth",
+    instructorTitle: "UIUX Designer Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "closed" as const,
+    date: "Fri, 24 May 2024",
+    time: "09:30 AM",
+    title: "UX/UI Design: Creating Amazing User Experiences",
+    category: "Art & Design",
+    price: "Rp160.000",
+  },
+  {
+    id: 4,
+    instructorName: "Andika Nerd",
+    instructorTitle: "Musician Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "open" as const,
+    date: "Sun, 26 May 2024",
+    time: "09:30 AM",
+    title: "Creativity in Music: Developing New Ideas and Inspiration",
+    category: "Music",
+    price: "Rp160.000",
+  },
+  {
+    id: 5,
+    instructorName: "Topikih Hoode Luicy",
+    instructorTitle: "Orator Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "open" as const,
+    date: "Mon, 27 May 2024",
+    time: "09:30 AM",
+    title:
+      "Building Confidence and Mastering Sales Techniques: A Complete Guide for Sales Professionals to Achieve Outstanding Results",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 6,
+    instructorName: "Bociel Raez",
+    instructorTitle: "Psychology Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face&auto=format&q=80",
+    workshopImage:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=200&fit=crop&auto=format&q=80",
+    status: "open" as const,
+    date: "Mon, 27 May 2024",
+    time: "09:30 AM",
+    title: "Managing Stress and Mental Health in the Music Industry",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+];
+---
+
+<div class="max-w-1176 mx-auto padding-section">
+  <HeaderSection
+    title="Highly sought-after"
+    subtitle="workshops are trending "
+    emoji="🔥"
+    buttonText="See All"
+    buttonVariant="orange"
+    buttonSize="medium"
+    buttonIcon="white-orange-arrow-right.svg"
+    buttonIconAlt="Arrow Right"
+  />
+
+  <!-- Workshop Cards Container -->
+  <div class="mt-6 md:mt-8">
+    <!-- Mobile: Horizontal Scroll -->
+    <div class="flex gap-4 overflow-x-auto pb-4 md:hidden scrollbar-hide">
+      {
+        workshops.map((workshop) => (
+          <WorkshopCard
+            id={workshop.id}
+            instructorName={workshop.instructorName}
+            instructorTitle={workshop.instructorTitle}
+            instructorImage={workshop.instructorImage}
+            workshopImage={workshop.workshopImage}
+            status={workshop.status}
+            date={workshop.date}
+            time={workshop.time}
+            title={workshop.title}
+            category={workshop.category}
+            price={workshop.price}
+          />
+        ))
+      }
+    </div>
+
+    <!-- Tablet & Desktop: Grid Layout -->
+    <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      {
+        workshops.map((workshop) => (
+          <WorkshopCard
+            id={workshop.id}
+            instructorName={workshop.instructorName}
+            instructorTitle={workshop.instructorTitle}
+            instructorImage={workshop.instructorImage}
+            workshopImage={workshop.workshopImage}
+            status={workshop.status}
+            date={workshop.date}
+            time={workshop.time}
+            title={workshop.title}
+            category={workshop.category}
+            price={workshop.price}
+          />
+        ))
+      }
+    </div>
+  </div>
+</div>
