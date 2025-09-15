@@ -5,6 +5,7 @@ import SubPageHeader from "../components/SubPageHeader.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Input from "../components/Input.astro";
 import Alert from "../components/Alert.astro";
+import Button from "../components/Button.astro";
 
 // Example breadcrumb items - you can customize these
 const breadcrumbItems = [
@@ -56,7 +57,7 @@ const breadcrumbItems = [
           class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
         >
           <!-- Section Title -->
-          <div class="flex flex-col gap-2 md:gap-3 lg:gap-4">
+          <div class="flex flex-col gap-4 md:gap-4">
             <h2
               class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
             >
@@ -79,7 +80,6 @@ const breadcrumbItems = [
                 iconAlt="Profile icon"
                 type="text"
                 name="fullName"
-                required={true}
                 class="w-full"
               />
 
@@ -91,7 +91,6 @@ const breadcrumbItems = [
                 iconAlt="Phone icon"
                 type="tel"
                 name="phone"
-                required={true}
                 class="w-full"
               />
 
@@ -103,10 +102,339 @@ const breadcrumbItems = [
                 iconAlt="Email icon"
                 type="email"
                 name="email"
-                required={true}
                 class="w-full"
               />
             </div>
+          </div>
+        </div>
+
+        <!-- Workshop Price & Attendants Details -->
+        <div
+          class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
+        >
+          <!-- Workshop Price Section -->
+          <div class="flex flex-col gap-4 md:gap-4">
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Workshop Price
+            </h2>
+            <div
+              class="flex flex-col sm:flex-row gap-4 md:gap-6 items-start sm:items-center justify-between"
+            >
+              <!-- Price Display -->
+              <div class="flex items-baseline gap-1">
+                <span
+                  class="font-bold text-red-500 text-2xl md:text-3xl lg:text-[32px] leading-none"
+                >
+                  Rp160.000
+                </span>
+                <span
+                  class="font-semibold text-gray text-sm md:text-base lg:text-base leading-none"
+                >
+                  /person
+                </span>
+              </div>
+
+              <!-- Quantity Selector -->
+              <div
+                class="bg-white border border-gray-200 rounded-lg p-2 md:p-3 flex items-center gap-2 md:gap-3"
+              >
+                <button
+                  class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8 12H16"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+                <span
+                  class="font-semibold text-black text-lg md:text-xl lg:text-xl text-center w-8 md:w-9"
+                >
+                  2
+                </span>
+                <button
+                  class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 5V19M5 12H19"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Attendants Details Section -->
+          <div class="flex flex-col gap-4 md:gap-4">
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Attendants Details
+            </h2>
+
+            <div class="flex flex-col gap-4 md:gap-6">
+              <!-- Attendant 1 - Open Accordion -->
+              <div
+                class="border border-gray-200 rounded-xl md:rounded-2xl overflow-hidden"
+              >
+                <input
+                  type="checkbox"
+                  id="attendant-1"
+                  class="hidden peer"
+                  checked
+                />
+                <label
+                  for="attendant-1"
+                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <h3
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >
+                    Attendants 1
+                  </h3>
+                  <svg
+                    class="w-5 h-5 md:w-6 md:h-6 text-gray-500 peer-checked:rotate-180 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </label>
+
+                <!-- Accordion Content using CSS Grid -->
+                <div
+                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+                >
+                  <div class="overflow-hidden">
+                    <div class="p-4 md:p-6 border-t border-gray-200">
+                      <div class="flex flex-col gap-4 md:gap-6">
+                        <!-- Full Name Input -->
+                        <Input
+                          label="Full Name"
+                          placeholder="Attendant Name"
+                          icon="profile-circle.svg"
+                          iconAlt="Profile icon"
+                          type="text"
+                          name="attendant1_fullName"
+                          class="w-full"
+                        />
+
+                        <!-- Occupation Input -->
+                        <Input
+                          label="Occupation"
+                          placeholder="Attendant Status"
+                          icon="briefcase.svg"
+                          iconAlt="Briefcase icon"
+                          type="text"
+                          name="attendant1_occupation"
+                          class="w-full"
+                        />
+
+                        <!-- Email Address Input -->
+                        <Input
+                          label="Email Address"
+                          placeholder="Attendant Email Address"
+                          icon="sms.svg"
+                          iconAlt="Email icon"
+                          type="email"
+                          name="attendant1_email"
+                          class="w-full"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Attendant 2 - Closed Accordion -->
+              <div
+                class="border border-gray-200 rounded-xl md:rounded-2xl overflow-hidden"
+              >
+                <input type="checkbox" id="attendant-2" class="hidden peer" />
+                <label
+                  for="attendant-2"
+                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+                >
+                  <h3
+                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >
+                    Attendants 2
+                  </h3>
+                  <svg
+                    class="w-5 h-5 md:w-6 md:h-6 text-gray-500 peer-checked:rotate-180 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </label>
+
+                <!-- Accordion Content using CSS Grid -->
+                <div
+                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
+                >
+                  <div class="overflow-hidden">
+                    <div class="p-4 md:p-6 border-t border-gray-200">
+                      <div class="flex flex-col gap-4 md:gap-6">
+                        <!-- Full Name Input -->
+                        <Input
+                          label="Full Name"
+                          placeholder="Attendant Name"
+                          icon="profile-circle.svg"
+                          iconAlt="Profile icon"
+                          type="text"
+                          name="attendant2_fullName"
+                          class="w-full"
+                        />
+
+                        <!-- Occupation Input -->
+                        <Input
+                          label="Occupation"
+                          placeholder="Attendant Status"
+                          icon="briefcase.svg"
+                          iconAlt="Briefcase icon"
+                          type="text"
+                          name="attendant2_occupation"
+                          class="w-full"
+                        />
+
+                        <!-- Email Address Input -->
+                        <Input
+                          label="Email Address"
+                          placeholder="Attendant Email Address"
+                          icon="sms.svg"
+                          iconAlt="Email icon"
+                          type="email"
+                          name="attendant2_email"
+                          class="w-full"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Details Section -->
+        <div
+          class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
+        >
+          <!-- Section Title -->
+          <div class="flex flex-col gap-4 md:gap-4">
+            <h2
+              class="capitalize font-bold text-[#09093c] text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Payments Details
+            </h2>
+
+            <!-- Payment Summary Card -->
+            <div
+              class="bg-white border border-[#e6e7eb] rounded-lg md:rounded-xl lg:rounded-xl p-4 md:p-6 lg:p-6 flex flex-col gap-3 md:gap-4 lg:gap-4"
+            >
+              <!-- Quantity Row -->
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base capitalize"
+                >
+                  Quantity
+                </span>
+                <span
+                  class="font-semibold text-[#09093c] text-base md:text-lg lg:text-lg"
+                >
+                  2
+                </span>
+              </div>
+
+              <!-- Price Row -->
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base capitalize"
+                >
+                  Price
+                </span>
+                <span
+                  class="font-semibold text-[#09093c] text-base md:text-lg lg:text-lg"
+                >
+                  Rp160.000
+                </span>
+              </div>
+
+              <!-- PPN Row -->
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base capitalize"
+                >
+                  PPN 11%
+                </span>
+                <span
+                  class="font-semibold text-[#09093c] text-base md:text-lg lg:text-lg"
+                >
+                  Rp5.000
+                </span>
+              </div>
+
+              <!-- Divider Line -->
+              <div class="border-t border-[#e6e7eb] my-1 md:my-2 lg:my-2"></div>
+
+              <!-- Total Price Row -->
+              <div class="flex items-center justify-between">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base capitalize"
+                >
+                  Total Price
+                </span>
+                <span
+                  class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                >
+                  Rp319.680
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pay Now Button -->
+          <div class="w-full">
+            <Button
+              variant="orange"
+              size="large"
+              type="submit"
+              class="w-full text-center justify-center rounded-xl"
+            >
+              Pay Now
+            </Button>
           </div>
         </div>
       </div>
