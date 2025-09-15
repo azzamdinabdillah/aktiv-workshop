@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SubPageHeader from "../components/SubPageHeader.astro";
 import Badge from "../components/Badge.astro";
 import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
 
 // Example breadcrumb items - you can customize these
 const breadcrumbItems = [
@@ -243,148 +244,156 @@ const breadcrumbItems = [
         </div>
 
         <!-- Workshop Pricing & Booking Card -->
-        <div class="bg-white rounded-3xl p-5 md:p-8">
-          <!-- Workshop Price Section -->
-          <div class="mb-6 md:mb-8">
-            <h3
-              class="text-lg md:text-xl lg:text-xl font-bold text-black capitalize mb-4"
+        <div class="rounded-3xl overflow-hidden">
+          <div class="bg-white p-5 md:p-8">
+            <!-- Workshop Price Section -->
+            <div class="mb-6 md:mb-8">
+              <h3
+                class="text-lg md:text-xl lg:text-xl font-bold text-black capitalize mb-4"
+              >
+                Workshop Price
+              </h3>
+              <div class="flex items-center gap-2">
+                <span
+                  class="text-2xl md:text-3xl lg:text-[32px] font-bold text-red"
+                >
+                  Rp160.000
+                </span>
+                <span
+                  class="text-sm md:text-base lg:text-base font-semibold text-[#757c98]"
+                >
+                  /person
+                </span>
+              </div>
+            </div>
+
+            <!-- Total Attendants Section -->
+            <div
+              class="bg-white border border-[#e6e7eb] rounded-2xl py-4 lg:py-4 px-4 lg:px-6 mb-6 md:mb-8 relative"
             >
-              Workshop Price
-            </h3>
-            <div class="flex items-center gap-2">
-              <span
-                class="text-2xl md:text-3xl lg:text-[32px] font-bold text-red"
-              >
-                Rp160.000
-              </span>
-              <span
-                class="text-sm md:text-base lg:text-base font-semibold text-[#757c98]"
-              >
-                /person
-              </span>
-            </div>
-          </div>
-
-          <!-- Total Attendants Section -->
-          <div
-            class="bg-white border border-[#e6e7eb] rounded-2xl py-4 lg:py-4 px-4 lg:px-6 mb-6 md:mb-8 relative"
-          >
-            <div class="flex items-center justify-between">
-              <div class="flex-1">
-                <p
-                  class="text-sm md:text-base lg:text-base font-medium text-[#757c98] mb-1"
+              <div class="flex items-center justify-between">
+                <div class="flex-1">
+                  <p
+                    class="text-sm md:text-base lg:text-base font-medium text-[#757c98] mb-1"
+                  >
+                    Total Attendants:
+                  </p>
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black"
+                  >
+                    24 People Has Joined
+                  </p>
+                </div>
+                <div
+                  class="bg-[rgba(252,155,76,0.05)] p-3 md:p-4 lg:p-4 rounded-xl"
                 >
-                  Total Attendants:
-                </p>
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black"
-                >
-                  24 People Has Joined
-                </p>
-              </div>
-              <div
-                class="bg-[rgba(252,155,76,0.05)] p-3 md:p-4 lg:p-4 rounded-xl"
-              >
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/profile-2user.svg`
-                  alt="People icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
-                />
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/profile-2user.svg`
+                    alt="People icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Learning Objectives Section -->
-          <div class="mb-6 md:mb-8">
-            <h3
-              class="text-lg md:text-xl lg:text-xl font-bold text-black mb-4"
-            >
-              This workshop will teach
-            </h3>
-            <div class="space-y-4 md:space-y-6">
-              <!-- Learning Objective 1 -->
-              <div class="flex items-center gap-2">
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
-                  alt="Check icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                />
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
-                >
-                  Crafting Compelling Messages
-                </p>
-              </div>
+            <!-- Learning Objectives Section -->
+            <div class="mb-6 md:mb-8">
+              <h3
+                class="text-lg md:text-xl lg:text-xl font-bold text-black mb-4"
+              >
+                This workshop will teach
+              </h3>
+              <div class="space-y-4 md:space-y-6">
+                <!-- Learning Objective 1 -->
+                <div class="flex items-center gap-2">
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                    alt="Check icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                  >
+                    Crafting Compelling Messages
+                  </p>
+                </div>
 
-              <!-- Learning Objective 2 -->
-              <div class="flex items-center gap-2">
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
-                  alt="Check icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                />
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
-                >
-                  Enhancing Delivery Skills
-                </p>
-              </div>
+                <!-- Learning Objective 2 -->
+                <div class="flex items-center gap-2">
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                    alt="Check icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                  >
+                    Enhancing Delivery Skills
+                  </p>
+                </div>
 
-              <!-- Learning Objective 3 -->
-              <div class="flex items-center gap-2">
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
-                  alt="Check icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                />
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
-                >
-                  Engaging Your Audience
-                </p>
-              </div>
+                <!-- Learning Objective 3 -->
+                <div class="flex items-center gap-2">
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                    alt="Check icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                  >
+                    Engaging Your Audience
+                  </p>
+                </div>
 
-              <!-- Learning Objective 4 -->
-              <div class="flex items-center gap-2">
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
-                  alt="Check icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                />
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
-                >
-                  Practical Exercises
-                </p>
-              </div>
+                <!-- Learning Objective 4 -->
+                <div class="flex items-center gap-2">
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                    alt="Check icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                  >
+                    Practical Exercises
+                  </p>
+                </div>
 
-              <!-- Learning Objective 5 -->
-              <div class="flex items-center gap-2">
-                <img
-                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
-                  alt="Check icon"
-                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
-                />
-                <p
-                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
-                >
-                  Personal Development Plan
-                </p>
+                <!-- Learning Objective 5 -->
+                <div class="flex items-center gap-2">
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                    alt="Check icon"
+                    class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                  />
+                  <p
+                    class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                  >
+                    Personal Development Plan
+                  </p>
+                </div>
               </div>
             </div>
+
+            <!-- Join Workshop Button -->
+            <Button disabled variant="orange" size="large" class="rounded-xl w-full">
+              Join Workshop
+            </Button>
           </div>
 
-          <!-- Join Workshop Button -->
-          <Button
-            variant="orange"
-            size="large"
-            class="rounded-xl w-full"
-          >
-            Join Workshop
-          </Button>
+          <!-- if status is closed -->
+          <div class="bg-red p-5 md:p-8">
+            <p class="text-18 font-medium text-white text-center">
+              Oops! Sorry, it seems that registration for this workshop is now
+              closed 🙌🏻 .
+            </p>
+          </div>
         </div>
       </div>
     </div>
+
+    <Footer />
   </div>
 
   <script>

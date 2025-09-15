@@ -1,0 +1,208 @@
+---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import WorkshopCard from "../components/WorkshopCard.astro";
+
+// Sample workshop data
+const workshops = [
+  {
+    id: 1,
+    instructorName: "Megamore S Qie",
+    instructorTitle: "Motivator Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Tue, 30 May 2024",
+    time: "9:30 AM",
+    title:
+      "Mastering the Art of Public Speaking: Practical Tips and Powerful Techniques",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 2,
+    instructorName: "Laura Tomb",
+    instructorTitle: "Psychology Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop",
+    status: "closed" as const,
+    date: "Fri, 24 May 2024",
+    time: "9:30 AM",
+    title:
+      "Enhancing Leadership Skills: Comprehensive Strategies for Developing Future Managers in a Dynamic Workplace",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 3,
+    instructorName: "Marqeuz Braun",
+    instructorTitle: "Motivator Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop",
+    status: "started" as const,
+    date: "Fri, 24 May 2024",
+    time: "9:30 AM",
+    title:
+      "Time Management Techniques for Startup Entrepreneurs: Balancing Innovation and Efficiency in a Competitive Market",
+    category: "Music",
+    price: "Rp160.000",
+  },
+  {
+    id: 4,
+    instructorName: "Kruger Marv",
+    instructorTitle: "Musician Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Fri, 24 May 2024",
+    time: "9:30 AM",
+    title:
+      "Effective Communication for IT Professionals: Advanced Methods to Foster Team Collaboration and Project Success",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 5,
+    instructorName: "Gabbi Noeeb",
+    instructorTitle: "Psychology Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Fri, 24 May 2024",
+    time: "9:30 AM",
+    title:
+      "Building Confidence and Mastering Sales Techniques: A Complete Guide for Sales Professionals to Achieve Outstanding Results",
+    category: "Programming",
+    price: "Rp160.000",
+  },
+  {
+    id: 6,
+    instructorName: "Raze Parker",
+    instructorTitle: "Musician Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Fri, 24 May 2024",
+    time: "9:30 AM",
+    title:
+      "Continuous Learning Strategies for Teachers: Enhancing Personal Growth and Student Competencies in Modern Education",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 7,
+    instructorName: "Andika Nerd",
+    instructorTitle: "Musician Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Sun, 26 May 2024",
+    time: "9:30 AM",
+    title: "Creativity in Music: Developing New Ideas and Inspiration",
+    category: "Music",
+    price: "Rp160.000",
+  },
+  {
+    id: 8,
+    instructorName: "Topikih Hoode Luicy",
+    instructorTitle: "Orator Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Mon, 27 May 2024",
+    time: "9:30 AM",
+    title:
+      "Building Confidence and Mastering Sales Techniques: A Complete Guide for Sales Professionals to Achieve Outstanding Results",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+  {
+    id: 9,
+    instructorName: "Bociel Raez",
+    instructorTitle: "Psychology Instructor",
+    instructorImage:
+      "https://images.unsplash.com/photo-1511367461989-f85a21fda167?w=150&h=150&fit=crop&crop=face",
+    workshopImage:
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=200&fit=crop",
+    status: "open" as const,
+    date: "Mon, 27 May 2024",
+    time: "9:30 AM",
+    title: "Managing Stress and Mental Health in the Music Industry",
+    category: "Self Improvement",
+    price: "Rp160.000",
+  },
+];
+
+const breadcrumbItems = [
+  { label: "Homepage", url: "/aktiv" },
+  { label: "Category Workshop", isActive: true },
+];
+---
+
+<BaseLayout title="Workshop by Category">
+  <Navbar />
+  <div
+    class="bg-gray-blue px-4 md:px-6 pb-4 md:pb-6 lg:pb-[100px] pt-[120px] md:pt-[140px] lg:pt-[160px]"
+  >
+    <div class="max-w-1176 mx-auto flex flex-col gap-9">
+      <!-- Header Section -->
+      <div class="text-center flex-col flex items-center gap-1">
+        <h1
+          class="text-2xl md:text-3xl lg:text-[32px] font-black text-[#09093c] mb-2 md:mb-3 lg:mb-4 capitalize"
+        >
+          Self Improvement (9)
+        </h1>
+        <div class="text-black">
+            <Breadcrumb items={breadcrumbItems} />
+        </div>
+      </div>
+
+      <!-- Workshop Grid -->
+      <div
+        class="flex gap-4 md:gap-6 lg:gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:auto-rows-fr lg:auto-rows-fr scrollbar-hide"
+      >
+        {
+          workshops.map((workshop) => (
+            <a
+              href={`${import.meta.env.ROOT_FOLDER}/workshop-details`}
+              class="block flex-shrink-0 md:flex-shrink"
+            >
+              <WorkshopCard
+                id={workshop.id}
+                instructorName={workshop.instructorName}
+                instructorTitle={workshop.instructorTitle}
+                instructorImage={workshop.instructorImage}
+                workshopImage={workshop.workshopImage}
+                status={workshop.status}
+                date={workshop.date}
+                time={workshop.time}
+                title={workshop.title}
+                category={workshop.category}
+                price={workshop.price}
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>

@@ -10,15 +10,15 @@ export interface Props {
 const { items } = Astro.props;
 ---
 
-<nav class="flex items-center gap-2 text-white text-16">
+<nav class="flex items-center gap-2  text-16">
   {
     items.map((item, index) => (
       <div class="flex items-center gap-2">
-        {index > 0 && <span class="text-white">&gt;</span>}
+        {index > 0 && <span class="">&gt;</span>}
         {item.url && !item.isActive ? (
           <a
             href={item.url}
-            class="text-white hover:text-gray-200 transition-colors duration-200 capitalize"
+            class=" hover:text-gray-200 transition-colors duration-200 capitalize"
           >
             {item.label}
           </a>
