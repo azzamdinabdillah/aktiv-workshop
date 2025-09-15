@@ -58,16 +58,16 @@ const benefits = [
     >
       {
         benefits.map((benefit) => (
-          <div class="benefit-card bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200">
+          <div class="hover-blue-effect bg-white p-4 md:p-5 lg:p-6 rounded-2xl lg:rounded-3xl border border-gray-200">
             <div class="flex gap-3 mb-3 items-center">
-              <div class="benefit-icon flex-shrink-0 w-12 h-12 md:w-14 md:h-14">
+              <div class="hover-icon-scale flex-shrink-0 w-12 h-12 md:w-14 md:h-14">
                 <img
                   src={`${import.meta.env.ICONS_FOLDER}/${benefit.icon}`}
                   alt={benefit.title}
                   class="w-full h-full object-contain"
                 />
               </div>
-              <h3 class="text-18 font-semibold text-black leading-relaxed flex-1">
+              <h3 class="hover-text-blue text-18 font-semibold text-black leading-relaxed flex-1">
                 {benefit.title}
               </h3>
             </div>

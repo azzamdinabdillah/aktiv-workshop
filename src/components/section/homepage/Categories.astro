@@ -51,9 +51,9 @@ const categories = [
   >
     {
       categories.map((category) => (
-        <div class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-3 md:p-5 flex gap-3 items-center justify-start box-border flex-shrink-0 w-full transition-all duration-300 ease-in-out hover:shadow-lg hover:-translate-y-1 cursor-pointer group border border-gray-100 hover:border-blue">
+        <div class="hover-blue-effect bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-3 md:p-5 flex gap-3 items-center justify-start box-border flex-shrink-0 w-full cursor-pointer group border border-gray-100">
           <div
-            class="w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 p-3 box-border transition-all duration-300 ease-in-out group-hover:scale-105"
+            class="hover-icon-scale w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 p-3 box-border"
             style={`background-color: ${category.bgColor}`}
           >
             <img
@@ -63,7 +63,7 @@ const categories = [
             />
           </div>
           <div class="flex flex-col gap-px justify-center md:justify-between h-[53px] flex-1 min-w-0">
-            <h3 class="font-poppins font-semibold text-18 text-[#09093c] m-0 leading-normal">
+            <h3 class="hover-text-blue font-poppins font-semibold text-18 text-[#09093c] m-0 leading-normal">
               {category.title}
             </h3>
             <p class="font-poppins font-medium text-16 text-[#757c98] m-0 leading-normal">

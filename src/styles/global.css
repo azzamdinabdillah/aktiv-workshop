@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -10,7 +10,7 @@
   --color-gray: #757c98;
   --color-gray-blue: #f5f6fb;
 
-  --font-grotesk: "Space Grotesk", sans-serif; 
+  --font-grotesk: "Space Grotesk", sans-serif;
 }
 
 * {
@@ -22,7 +22,7 @@
 }
 
 .blue-gradient-darker {
-  background: linear-gradient(278deg, #5B8CE9 0%, #4EB6F5 50%, #5B8CE9 100%);
+  background: linear-gradient(278deg, #5b8ce9 0%, #4eb6f5 50%, #5b8ce9 100%);
 }
 
 .gap-24 {
@@ -65,31 +65,31 @@
   @apply px-4 md:px-8 xl:px-0 py-6 md:py-8;
 }
 
-/* Benefit card hover effects */
-.benefit-card {
+/* Universal hover effects */
+.hover-blue-effect {
   @apply transition-all duration-300 ease-in-out;
 }
 
-.benefit-card:hover {
+.hover-blue-effect:hover {
   @apply transform -translate-y-2 shadow-lg;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
   border-color: #0268fb;
 }
 
-.benefit-card:hover .benefit-icon {
+.hover-blue-effect:hover .hover-icon-scale {
   @apply transform scale-110;
 }
 
-.benefit-card:hover h3 {
+.hover-blue-effect:hover .hover-text-blue {
   @apply text-blue;
 }
 
-.benefit-icon {
+.hover-icon-scale {
   @apply transition-transform duration-300 ease-in-out;
 }
 
-.benefit-card h3 {
+.hover-text-blue {
   @apply transition-colors duration-300 ease-in-out;
 }
 
