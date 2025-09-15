@@ -2,7 +2,10 @@
 import Button from "./Button.astro";
 ---
 
-<div class="bg-white">
+<div
+  class="bg-white fixed top-0 left-0 right-0 z-40 transition-transform duration-300 ease-in-out"
+  id="navbar"
+>
   <div
     class="flex justify-between items-center px-6 py-5 lg:p-[32px] max-w-[1216px] xl:px-0 mx-auto"
   >
@@ -187,4 +190,34 @@ import Button from "./Button.astro";
   drawerLinks?.forEach((link) => {
     link.addEventListener("click", closeDrawer);
   });
+
+  // Navbar scroll behavior
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+  const navbar = document.getElementById("navbar");
+
+  function updateNavbar() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 50) {
+      // Scrolling down - hide navbar
+      navbar?.classList.add("-translate-y-full");
+    } else {
+      // Scrolling up - show navbar
+      navbar?.classList.remove("-translate-y-full");
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }
+
+  // Add scroll event listener
+  window.addEventListener("scroll", requestTick, { passive: true });
 </script>
