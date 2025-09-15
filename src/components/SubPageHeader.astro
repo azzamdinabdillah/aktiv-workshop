@@ -1,0 +1,36 @@
+---
+import Breadcrumb from "./Breadcrumb.astro";
+
+export interface Props {
+  title?: string;
+  breadcrumbItems?: Array<{
+    label: string;
+    url?: string;
+    isActive?: boolean;
+  }>;
+}
+
+const {
+  title = "Workshop Details",
+  breadcrumbItems = [
+    { label: "Homepage", url: "/" },
+    { label: "Workshop Details", isActive: true },
+  ],
+} = Astro.props;
+---
+
+<section class="relative w-full blue-gradient">
+  <div
+    class="relative z-10 flex flex-col items-center justify-center pt-[130px] pb-[160px] lg:pt-[176px]"
+  >
+    <!-- Title -->
+    <h1
+      class="text-24 md:text-28 lg:text-32 text-white text-center mb-2 md:mb-3 lg:mb-4 leading-tight font-bold"
+    >
+      {title}
+    </h1>
+
+    <!-- Breadcrumb -->
+    <Breadcrumb items={breadcrumbItems} />
+  </div>
+</section>

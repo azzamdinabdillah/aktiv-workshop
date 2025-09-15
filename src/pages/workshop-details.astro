@@ -1,0 +1,21 @@
+---
+import Navbar from "../components/Navbar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SubPageHeader from "../components/SubPageHeader.astro";
+
+// Example breadcrumb items - you can customize these
+const breadcrumbItems = [
+  { label: "Homepage", url: "/aktiv" },
+  { label: "Workshop Details", isActive: true },
+];
+---
+
+<BaseLayout title="Workshop Details">
+  <Navbar />
+
+  <SubPageHeader title="Workshop Details" breadcrumbItems={breadcrumbItems}/>
+
+  <div class="w-[90%] max-w-1176 mx-auto -translate-y-[100px]">
+
+  </div>
+</BaseLayout>
