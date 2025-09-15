@@ -1,4 +1,6 @@
 ---
+import Badge from "./Badge.astro";
+
 export interface Props {
   id: number;
   instructorName: string;
@@ -26,27 +28,6 @@ const {
   category,
   price,
 } = Astro.props;
-
-// Status badge configuration
-const statusConfig = {
-  open: {
-    icon: `${import.meta.env.ICONS_FOLDER}/badge-workshop-card-open.svg`,
-    bgColor: "bg-[#1f8a70]",
-    text: "OPEN",
-  },
-  started: {
-    icon: `${import.meta.env.ICONS_FOLDER}/badge-workshop-card-started.svg`,
-    bgColor: "bg-orange",
-    text: "STARTED",
-  },
-  closed: {
-    icon: `${import.meta.env.ICONS_FOLDER}/badge-workshop-card-closed.svg`,
-    bgColor: "bg-[#eb5757]",
-    text: "CLOSED",
-  },
-};
-
-const currentStatus = statusConfig[status];
 ---
 
 <div
@@ -90,20 +71,7 @@ const currentStatus = statusConfig[status];
       />
 
       <!-- Status Badge -->
-      <div
-        class={`absolute top-2 left-2 md:top-3 md:left-3 ${currentStatus.bgColor} flex items-center gap-1 px-3 py-2 md:px-4 md:py-2.5 lg:px-5 lg:py-3 rounded-[100px] transition-all duration-300 ease-out z-10 w-fit`}
-      >
-        <img
-          src={currentStatus.icon}
-          alt={status}
-          class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6"
-        />
-        <span
-          class="font-semibold text-white text-xs md:text-sm lg:text-base whitespace-nowrap"
-        >
-          {currentStatus.text}
-        </span>
-      </div>
+      <Badge status={status} />
     </div>
 
     <!-- Workshop Details -->
