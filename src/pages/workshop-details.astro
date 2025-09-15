@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SubPageHeader from "../components/SubPageHeader.astro";
 import Badge from "../components/Badge.astro";
+import Button from "../components/Button.astro";
 
 // Example breadcrumb items - you can customize these
 const breadcrumbItems = [
@@ -12,168 +13,375 @@ const breadcrumbItems = [
 ---
 
 <BaseLayout title="Workshop Details">
-  <Navbar />
+  <div class="bg-gray-blue">
+    <Navbar />
 
-  <SubPageHeader title="Workshop Details" breadcrumbItems={breadcrumbItems} />
+    <SubPageHeader title="Workshop Details" breadcrumbItems={breadcrumbItems} />
+    <div
+      class="w-[93%] max-w-1176 xl:w-full mx-auto -translate-y-[100px] grid gap-4 md:gap-6 lg:gap-8 lg:grid-cols-[1fr_420px]"
+    >
+      <!-- Main Workshop Card -->
+      <div class="bg-white rounded-2xl p-5 md:p-8 shadow-lg">
+        <!-- Workshop Image with Badge -->
+        <div class="relative mb-6 md:mb-8">
+          <div
+            class="relative rounded-2xl overflow-hidden h-48 md:h-64 lg:h-[369px]"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Public Speaking Workshop"
+              class="w-full h-full object-cover"
+            />
+            <!-- Badge Component -->
+            <Badge status="open" />
+          </div>
+        </div>
 
-  <div class="w-[90%] max-w-4xl mx-auto -translate-y-[100px]">
-    <!-- Main Workshop Card -->
-    <div class="bg-white rounded-2xl p-6 md:p-8 shadow-lg">
-      <!-- Workshop Image with Badge -->
-      <div class="relative mb-6 md:mb-8">
-        <div
-          class="relative rounded-2xl overflow-hidden h-48 md:h-64 lg:h-[369px]"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-            alt="Public Speaking Workshop"
-            class="w-full h-full object-cover"
-          />
-          <!-- Badge Component -->
-          <Badge status="open" />
+        <!-- Workshop Info -->
+        <div class="space-y-4 md:space-y-6">
+          <!-- Category and Rating -->
+          <div class="flex flex-wrap sm:items-center gap-4">
+            <!-- Category Badge -->
+            <div
+              class="bg-[rgba(31,138,112,0.09)] border border-[#1f8a70] rounded-lg px-3 py-2 flex items-center gap-2 w-fit"
+            >
+              <img
+                src=`${import.meta.env.ICONS_FOLDER}/format-circle.svg`
+                alt=""
+              />
+              <span
+                class="text-[#1f8a70] font-medium text-sm md:text-base capitalize"
+                >self improvement</span
+              >
+            </div>
+
+            <!-- Star Rating -->
+            <div class="flex items-center gap-2">
+              <div class="flex gap-1">
+                {
+                  Array.from({ length: 5 }, (_, i) => (
+                    <svg
+                      key={i}
+                      class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                    </svg>
+                  ))
+                }
+              </div>
+              <div class="text-black font-semibold text-base md:text-lg">
+                <span>4.5 </span>
+                <span class="font-medium text-[#757c98]">(3250 Reviews)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workshop Title -->
+          <div class="space-y-4">
+            <h1
+              class="text-xl md:text-2xl lg:text-3xl font-bold text-black leading-[140%] capitalize"
+            >
+              Mastering the Art of Public Speaking: Practical Tips and Powerful
+              Techniques
+            </h1>
+
+            <!-- Time and Date Cards -->
+            <div class="flex flex-wrap gap-4 md:gap-6">
+              <!-- Time Card -->
+              <div
+                class="bg-white flex-grow-1 border border-[#e6e7eb] rounded-2xl p-4 md:p-5 flex items-center gap-4"
+              >
+                <div class="flex-1">
+                  <p
+                    class="text-[#757c98] font-medium text-sm md:text-base mb-1"
+                  >
+                    Start from
+                  </p>
+                  <p class="text-black font-semibold text-base md:text-lg">
+                    09:30 AM - Finish
+                  </p>
+                </div>
+                <div
+                  class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center"
+                >
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/duration.svg`
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <!-- Date Card -->
+              <div
+                class="bg-white flex-grow-1 border border-[#e6e7eb] rounded-2xl p-4 md:p-5 flex items-center gap-4"
+              >
+                <div class="flex-1">
+                  <p
+                    class="text-[#757c98] font-medium text-sm md:text-base mb-1"
+                  >
+                    Kick off date
+                  </p>
+                  <p class="text-black font-semibold text-base md:text-lg">
+                    30 May 2024
+                  </p>
+                </div>
+                <div
+                  class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center"
+                >
+                  <img
+                    src=`${import.meta.env.ICONS_FOLDER}/kick-off.svg`
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Description Section -->
+          <div class="space-y-4">
+            <h2 class="text-lg md:text-xl font-bold text-black">
+              Descriptions
+            </h2>
+            <div
+              class="text-[#757c98] font-medium text-sm md:text-base leading-relaxed"
+            >
+              <p id="description-text" class="leading-[180%]">
+                Unlock your potential and become a confident, persuasive speaker
+                with our comprehensive workshop, "Mastering the Art of Public
+                Speaking: Tips and Techniques." This interactive session is
+                designed to provide participants with essential skills and
+                practical strategies for overcoming stage fright, crafting
+                compelling presentations, and delivering powerful speeches that
+                captivate audiences. Through hands-on exercises, personalized
+                feedback, and proven techniques, you'll learn how to structure
+                your message effectively, use body language and voice modulation
+                to enhance your delivery, and build the confidence needed to
+                speak in any professional or personal setting.
+              </p>
+              <button
+                id="read-more-btn"
+                class="text-[#0268fb] font-semibold hover:underline ml-1"
+              >
+                Read more...
+              </button>
+            </div>
+          </div>
+
+          <!-- Location Details -->
+          <div class="space-y-4">
+            <h2 class="text-lg md:text-xl font-bold text-black">
+              Location Details
+            </h2>
+
+            <!-- Map Container -->
+            <div
+              class="relative rounded-2xl overflow-hidden h-64 md:h-80 lg:h-[360px]"
+            >
+              <!-- Google Maps Embed -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.123456789!2d107.6098105!3d-6.9174639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1234567890"
+                width="100%"
+                height="100%"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="w-full h-full"></iframe>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Workshop Info -->
-      <div class="space-y-4 md:space-y-6">
-        <!-- Category and Rating -->
-        <div class="flex flex-col sm:flex-row sm:items-center gap-4">
-          <!-- Category Badge -->
-          <div
-            class="bg-[rgba(31,138,112,0.09)] border border-[#1f8a70] rounded-lg px-3 py-2 flex items-center gap-2 w-fit"
-          >
-            <img src=`${import.meta.env.ICONS_FOLDER}/format-circle.svg` alt="">
-            <span
-              class="text-[#1f8a70] font-medium text-sm md:text-base capitalize"
-              >self improvement</span
-            >
-          </div>
+      <!-- Instructor Details Section -->
+      <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
+        <div class="bg-white rounded-2xl md:rounded-3xl p-5 md:p-8">
+          <div class="space-y-2 md:space-y-4">
+            <!-- Section Title -->
+            <h2 class="text-lg md:text-xl font-bold text-black capitalize">
+              Instructor Details
+            </h2>
 
-          <!-- Star Rating -->
-          <div class="flex items-center gap-2">
-            <div class="flex gap-1">
-              {
-                Array.from({ length: 5 }, (_, i) => (
-                  <svg
-                    key={i}
-                    class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-yellow-400"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                  </svg>
-                ))
-              }
-            </div>
-            <div class="text-[#09093c] font-semibold text-base md:text-lg">
-              <span>4.5 </span>
-              <span class="font-medium text-[#757c98]">(3250 Reviews)</span>
+            <!-- Instructor Card -->
+            <div
+              class="flex flex-wrap flex-row items-start sm:items-center gap-3"
+            >
+              <!-- Instructor Photo -->
+              <div class="relative">
+                <div
+                  class="h-12 w-12 lg:h-16 lg:w-16 rounded-full overflow-hidden bg-gray-100"
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80"
+                    alt="Megamore S Qie"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              <!-- Instructor Info -->
+              <div class="flex-1 space-y-px">
+                <h3 class="text-18 font-semibold text-black">Megamore S Qie</h3>
+                <p class="text-16 font-medium text-gray">
+                  Motivator Instructor
+                </p>
+              </div>
+
+              <!-- Verification Badge -->
+              <div
+                class="bg-[#0268fb] rounded-full w-12 h-12 lg:w-[62px] lg:h-[62px] p-3 flex items-center justify-center"
+              >
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/verify.svg`
+                  alt=""
+                  class="w-6 h-6 md:w-8 md:h-8 lg:w-[42px] lg:h-[42px] text-white"
+                />
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Workshop Title -->
-        <div class="space-y-4">
-          <h1
-            class="text-xl md:text-2xl lg:text-3xl font-bold text-[#09093c] leading-[140%] capitalize"
-          >
-            Mastering the Art of Public Speaking: Practical Tips and Powerful
-            Techniques
-          </h1>
-
-          <!-- Time and Date Cards -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-            <!-- Time Card -->
-            <div
-              class="bg-white border border-[#e6e7eb] rounded-2xl p-4 md:p-5 flex items-center gap-4"
+        <!-- Workshop Pricing & Booking Card -->
+        <div class="bg-white rounded-3xl p-5 md:p-8">
+          <!-- Workshop Price Section -->
+          <div class="mb-6 md:mb-8">
+            <h3
+              class="text-lg md:text-xl lg:text-xl font-bold text-black capitalize mb-4"
             >
+              Workshop Price
+            </h3>
+            <div class="flex items-center gap-2">
+              <span
+                class="text-2xl md:text-3xl lg:text-[32px] font-bold text-red"
+              >
+                Rp160.000
+              </span>
+              <span
+                class="text-sm md:text-base lg:text-base font-semibold text-[#757c98]"
+              >
+                /person
+              </span>
+            </div>
+          </div>
+
+          <!-- Total Attendants Section -->
+          <div
+            class="bg-white border border-[#e6e7eb] rounded-2xl py-4 lg:py-4 px-4 lg:px-6 mb-6 md:mb-8 relative"
+          >
+            <div class="flex items-center justify-between">
               <div class="flex-1">
-                <p class="text-[#757c98] font-medium text-sm md:text-base mb-1">
-                  Start from
+                <p
+                  class="text-sm md:text-base lg:text-base font-medium text-[#757c98] mb-1"
+                >
+                  Total Attendants:
                 </p>
-                <p class="text-[#09093c] font-semibold text-base md:text-lg">
-                  09:30 AM - Finish
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black"
+                >
+                  24 People Has Joined
                 </p>
               </div>
               <div
-                class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl flex items-center justify-center"
+                class="bg-[rgba(252,155,76,0.05)] p-3 md:p-4 lg:p-4 rounded-xl"
               >
-                <img src=`${import.meta.env.ICONS_FOLDER}/duration.svg` alt="">
-              </div>
-            </div>
-
-            <!-- Date Card -->
-            <div
-              class="bg-white border border-[#e6e7eb] rounded-2xl p-4 md:p-5 flex items-center gap-4"
-            >
-              <div class="flex-1">
-                <p class="text-[#757c98] font-medium text-sm md:text-base mb-1">
-                  Kick off date
-                </p>
-                <p class="text-[#09093c] font-semibold text-base md:text-lg">
-                  30 May 2024
-                </p>
-              </div>
-              <div
-                class="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center"
-              >
-                <img src=`${import.meta.env.ICONS_FOLDER}/kick-off.svg` alt="">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/profile-2user.svg`
+                  alt="People icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6"
+                />
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Description Section -->
-        <div class="space-y-4">
-          <h2 class="text-lg md:text-xl font-bold text-[#09093c]">
-            Descriptions
-          </h2>
-          <div
-            class="text-[#757c98] font-medium text-sm md:text-base leading-relaxed"
-          >
-            <p id="description-text" class="leading-[180%]">
-              Unlock your potential and become a confident, persuasive speaker
-              with our comprehensive workshop, "Mastering the Art of Public
-              Speaking: Tips and Techniques." This interactive session is
-              designed to provide participants with essential skills and
-              practical strategies for overcoming stage fright, crafting
-              compelling presentations, and delivering powerful speeches that
-              captivate audiences. Through hands-on exercises, personalized
-              feedback, and proven techniques, you'll learn how to structure
-              your message effectively, use body language and voice modulation
-              to enhance your delivery, and build the confidence needed to speak
-              in any professional or personal setting.
-            </p>
-            <button
-              id="read-more-btn"
-              class="text-[#0268fb] font-semibold hover:underline ml-1"
+          <!-- Learning Objectives Section -->
+          <div class="mb-6 md:mb-8">
+            <h3
+              class="text-lg md:text-xl lg:text-xl font-bold text-black mb-4"
             >
-              Read more...
-            </button>
+              This workshop will teach
+            </h3>
+            <div class="space-y-4 md:space-y-6">
+              <!-- Learning Objective 1 -->
+              <div class="flex items-center gap-2">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                  alt="Check icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                />
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                >
+                  Crafting Compelling Messages
+                </p>
+              </div>
+
+              <!-- Learning Objective 2 -->
+              <div class="flex items-center gap-2">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                  alt="Check icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                />
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                >
+                  Enhancing Delivery Skills
+                </p>
+              </div>
+
+              <!-- Learning Objective 3 -->
+              <div class="flex items-center gap-2">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                  alt="Check icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                />
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                >
+                  Engaging Your Audience
+                </p>
+              </div>
+
+              <!-- Learning Objective 4 -->
+              <div class="flex items-center gap-2">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                  alt="Check icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                />
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                >
+                  Practical Exercises
+                </p>
+              </div>
+
+              <!-- Learning Objective 5 -->
+              <div class="flex items-center gap-2">
+                <img
+                  src=`${import.meta.env.ICONS_FOLDER}/check.svg`
+                  alt="Check icon"
+                  class="w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6 flex-shrink-0"
+                />
+                <p
+                  class="text-base md:text-lg lg:text-lg font-semibold text-black capitalize"
+                >
+                  Personal Development Plan
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <!-- Location Details -->
-        <div class="space-y-4">
-          <h2 class="text-lg md:text-xl font-bold text-[#09093c]">
-            Location Details
-          </h2>
-
-          <!-- Map Container -->
-          <div
-            class="relative rounded-2xl overflow-hidden h-64 md:h-80 lg:h-[360px]"
+          <!-- Join Workshop Button -->
+          <Button
+            variant="orange"
+            size="large"
+            class="rounded-xl w-full"
           >
-            <!-- Google Maps Embed -->
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.123456789!2d107.6098105!3d-6.9174639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20West%20Java%2C%20Indonesia!5e0!3m2!1sen!2sid!4v1234567890"
-              width="100%"
-              height="100%"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              class="w-full h-full"></iframe>
-          </div>
+            Join Workshop
+          </Button>
         </div>
       </div>
     </div>
@@ -200,13 +408,4 @@ const breadcrumbItems = [
       });
     });
   </script>
-
-  <style>
-    .line-clamp-4 {
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-  </style>
 </BaseLayout>

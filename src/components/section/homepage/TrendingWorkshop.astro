@@ -117,6 +117,7 @@ const workshops = [
     <div class="flex gap-4 overflow-x-auto pb-4 md:hidden scrollbar-hide">
       {
         workshops.map((workshop) => (
+          <a href=`${import.meta.env.ROOT_FOLDER}/workshop-details` class="cursor-pointer" style="display: contents;">
           <WorkshopCard
             id={workshop.id}
             instructorName={workshop.instructorName}
@@ -129,7 +130,8 @@ const workshops = [
             title={workshop.title}
             category={workshop.category}
             price={workshop.price}
-          />
+            />
+          </a>
         ))
       }
     </div>
