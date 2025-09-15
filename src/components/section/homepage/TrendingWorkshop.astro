@@ -138,19 +138,21 @@ const workshops = [
     <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
       {
         workshops.map((workshop) => (
-          <WorkshopCard
-            id={workshop.id}
-            instructorName={workshop.instructorName}
-            instructorTitle={workshop.instructorTitle}
-            instructorImage={workshop.instructorImage}
-            workshopImage={workshop.workshopImage}
-            status={workshop.status}
-            date={workshop.date}
-            time={workshop.time}
-            title={workshop.title}
-            category={workshop.category}
-            price={workshop.price}
-          />
+          <a href=`${import.meta.env.ROOT_FOLDER}/workshop-details`>
+            <WorkshopCard
+              id={workshop.id}
+              instructorName={workshop.instructorName}
+              instructorTitle={workshop.instructorTitle}
+              instructorImage={workshop.instructorImage}
+              workshopImage={workshop.workshopImage}
+              status={workshop.status}
+              date={workshop.date}
+              time={workshop.time}
+              title={workshop.title}
+              category={workshop.category}
+              price={workshop.price}
+            />
+            </a>
         ))
       }
     </div>
