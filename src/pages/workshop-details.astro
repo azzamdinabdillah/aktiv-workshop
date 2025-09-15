@@ -377,9 +377,12 @@ const breadcrumbItems = [
             </div>
 
             <!-- Join Workshop Button -->
-            <Button disabled variant="orange" size="large" class="rounded-xl w-full">
-              Join Workshop
-            </Button>
+            <!-- Add disabled attribute if status is closed -->
+            <a href=`${import.meta.env.ROOT_FOLDER}/booking-workshop`>
+              <Button variant="orange" size="large" class="rounded-xl w-full">
+                Join Workshop
+              </Button>
+            </a>
           </div>
 
           <!-- if status is closed -->

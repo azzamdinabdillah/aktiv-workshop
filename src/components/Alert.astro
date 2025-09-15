@@ -1,0 +1,45 @@
+---
+export interface Props {
+  type?: "error" | "warning" | "info" | "success";
+  message: string;
+  class?: string;
+}
+
+const { type = "error", message, class: className = "", ...rest } = Astro.props;
+
+const alertClasses = {
+  error: "bg-gradient-to-l from-red/0 to-red/10 border-l-red",
+  warning: "bg-gradient-to-l from-orange/0 to-orange/10 border-l-orange",
+  info: "bg-gradient-to-l from-blue/0 to-blue/10 border-l-blue",
+  success: "bg-gradient-to-l from-green/0 to-green/10 border-l-green",
+};
+
+const textClasses = {
+  error: "text-red",
+  warning: "text-orange",
+  info: "text-blue",
+  success: "text-green",
+};
+
+const alertClass = alertClasses[type];
+const textClass = textClasses[type];
+---
+
+<div
+  class={`
+  ${alertClass}
+  border-l-4 rounded-r-lg md:rounded-r-xl lg:rounded-r-xl
+  p-3 md:p-4 lg:p-4
+  ${className}
+`}
+  {...rest}
+>
+  <p
+    class={`
+    font-semibold text-sm md:text-base lg:text-base leading-snug
+    ${textClass}
+  `}
+  >
+    {message}
+  </p>
+</div>
