@@ -43,14 +43,16 @@ import Plus from "../components/section/homepage/Plus.astro";
 
             <!-- Button -->
             <div class="w-full mt-2">
-              <Button
-                variant="orange"
-                size="large"
-                leftIcon="search-normal.svg"
-                class="w-full"
-              >
-                View My Booking
-              </Button>
+              <a href={`${import.meta.env.ROOT_FOLDER}/details-booking`}>
+                <Button
+                  variant="orange"
+                  size="large"
+                  leftIcon="search-normal.svg"
+                  class="w-full"
+                >
+                  View My Booking
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -101,14 +103,16 @@ import Plus from "../components/section/homepage/Plus.astro";
 
             <!-- Button -->
             <div class="flex-shrink-0">
-              <Button
-                variant="orange"
-                size="medium"
-                leftIcon="search-normal.svg"
-                class=""
-              >
-                View My Booking
-              </Button>
+              <a href={`${import.meta.env.ROOT_FOLDER}/details-booking`}>
+                <Button
+                  variant="orange"
+                  size="medium"
+                  leftIcon="search-normal.svg"
+                  class=""
+                >
+                  View My Booking
+                </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -116,7 +120,7 @@ import Plus from "../components/section/homepage/Plus.astro";
     </SubPageHeader>
 
     <div class="py-3 md:py-5 lg:py-[68px]">
-        <Plus />
+      <Plus />
     </div>
 
     <Footer />
