@@ -3,34 +3,43 @@ import Breadcrumb from "./Breadcrumb.astro";
 
 export interface Props {
   title?: string;
+  subTitle?: string;
   breadcrumbItems?: Array<{
     label: string;
     url?: string;
     isActive?: boolean;
   }>;
+  paddingNormal?: boolean;
 }
 
-const {
-  title = "Workshop Details",
-  breadcrumbItems = [
-    { label: "Homepage", url: "/" },
-    { label: "Workshop Details", isActive: true },
-  ],
-} = Astro.props;
+const { title = "Workshop Details", subTitle, breadcrumbItems, paddingNormal } = Astro.props;
 ---
 
 <section class="relative w-full blue-gradient px-4">
   <div
-    class="relative z-10 flex flex-col items-center justify-center pt-[120px] pb-[150px] md:pt-[130px] md:pb-[160px] lg:pt-[176px] w-full"
+    class=`relative z-10 flex flex-col items-center justify-center w-full ${paddingNormal ? "pt-[120px] md:pt-[130px] lg:pt-[176px] pb-10 md:pb-12 lg:pb-16" : "pt-[120px] pb-[150px] md:pt-[130px] md:pb-[160px] lg:pt-[176px]"}`
   >
     <!-- Title -->
     <h1 class="text-32 text-white text-center mb-1.5 leading-tight font-bold">
       {title}
     </h1>
 
+    <!-- Subtitle -->
+    {
+      subTitle && (
+        <p class="text-white text-16 text-center">{subTitle}</p>
+      )
+    }
+
     <!-- Breadcrumb -->
-    <div class="text-white">
-      <Breadcrumb items={breadcrumbItems} />
-    </div>
+    {
+      breadcrumbItems && breadcrumbItems.length > 0 && (
+        <div class="text-white">
+          <Breadcrumb items={breadcrumbItems} />
+        </div>
+      )
+    }
+
+    <slot />
   </div>
 </section>

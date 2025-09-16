@@ -3,6 +3,7 @@ export interface Props {
   variant?: "green" | "blue" | "orange" | "light-blue" | "black";
   size?: "small" | "medium" | "large";
   icon?: string;
+  leftIcon?: string;
   iconAlt?: string;
   href?: string;
   type?: "button" | "submit" | "reset";
@@ -14,6 +15,7 @@ const {
   variant = "green",
   size = "small",
   icon,
+  leftIcon,
   iconAlt = "Icon",
   href,
   type = "button",
@@ -39,14 +41,14 @@ const colorClasses = {
 const sizeClasses = {
   small: "text-16 font-semibold px-4 h-[40px] md:px-6 md:h-[48px]",
   medium: "text-16 font-semibold px-4 h-[43px] md:px-6 md:h-[56px]",
-  large: "text-18 font-semibold px-8 h-[56px] md:px-10 md:h-[64px] lg:h-[64px]",
+  large: "text-18 font-semibold px-4 md:px-6 h-[45px] md:h-[56px] md:px-8 lg:h-[64px]",
 };
 
 // Icon size variants
 const iconSizeClasses = {
   small: "w-5 h-5 lg:w-6 lg:h-6",
   medium: "w-6 h-6 lg:w-7 lg:h-7",
-  large: "w-7 h-7 lg:w-8 lg:h-8",
+  large: "w-5 h-5 md:w-7 md:h-7 lg:w-8 lg:h-8",
 };
 
 const baseClasses =
@@ -62,7 +64,14 @@ const buttonClasses =
 {
   href ? (
     <a href={href} class={buttonClasses} {...rest}>
-      <span class="relative z-10 flex items-center gap-3">
+      <span class="relative z-10 flex items-center gap-2 md:gap-3">
+        {leftIcon && (
+          <img
+            src={`${import.meta.env.ICONS_FOLDER}/${leftIcon}`}
+            alt={iconAlt}
+            class={`${iconSizeClass} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+          />
+        )}
         <slot />
         {icon && (
           <img
@@ -75,7 +84,14 @@ const buttonClasses =
     </a>
   ) : (
     <button type={type} class={buttonClasses} {...rest} disabled={disabled}>
-      <span class="relative z-10 flex items-center gap-3">
+      <span class="relative z-10 flex items-center gap-2 md:gap-3">
+        {leftIcon && (
+          <img
+            src={`${import.meta.env.ICONS_FOLDER}/${leftIcon}`}
+            alt={iconAlt}
+            class={`${iconSizeClass} transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}
+          />
+        )}
         <slot />
         {icon && (
           <img
