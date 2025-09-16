@@ -21,18 +21,16 @@ const {
 
 <section class="relative w-full blue-gradient px-4">
   <div
-    class="relative z-10 flex flex-col items-center justify-center pt-[120px] pb-[150px] md:pt-[130px] md:pb-[160px] lg:pt-[176px]"
+    class="relative z-10 flex flex-col items-center justify-center pt-[120px] pb-[150px] md:pt-[130px] md:pb-[160px] lg:pt-[176px] w-full"
   >
     <!-- Title -->
-    <h1
-      class="text-32 text-white text-center mb-1.5 leading-tight font-bold"
-    >
+    <h1 class="text-32 text-white text-center mb-1.5 leading-tight font-bold">
       {title}
     </h1>
 
     <!-- Breadcrumb -->
-     <div class="text-white">
-         <Breadcrumb items={breadcrumbItems} />
-     </div>
+    <div class="text-white">
+      <Breadcrumb items={breadcrumbItems} />
+    </div>
   </div>
 </section>
