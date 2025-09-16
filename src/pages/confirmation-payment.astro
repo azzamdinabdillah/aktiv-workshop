@@ -6,6 +6,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Input from "../components/Input.astro";
 import Alert from "../components/Alert.astro";
 import Button from "../components/Button.astro";
+import Select from "../components/Select.astro";
+import UploadImage from "../components/UploadImage.astro";
 
 // Example breadcrumb items - you can customize these
 const breadcrumbItems = [
@@ -14,7 +16,33 @@ const breadcrumbItems = [
     label: "Workshop Details",
     url: `${import.meta.env.ROOT_FOLDER}/workshop-details`,
   },
-  { label: "Booking Workshop", isActive: true },
+  {
+    label: "Booking Workshop",
+    url: `${import.meta.env.ROOT_FOLDER}/booking-workshop`,
+  },
+  { label: "Confirmation Payment", isActive: true },
+];
+
+// Bank options data
+const bankOptions = [
+  {
+    id: "bca",
+    name: "BCA Activ Bank",
+    accountNumber: "1935 0009 1200",
+    image: "bca.png",
+  },
+  {
+    id: "bni",
+    name: "BNI Activ Bank",
+    accountNumber: "1200 1935 0009",
+    image: "bni.png",
+  },
+  {
+    id: "bri",
+    name: "BRI Activ Bank",
+    accountNumber: "0009 1200 1935",
+    image: "bri.png",
+  },
 ];
 ---
 
@@ -298,326 +326,6 @@ const breadcrumbItems = [
       </div>
 
       <div class="flex flex-col gap-4 md:gap-6 lg:gap-8 w-full">
-        <!-- Security Card -->
-        <div
-          class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col md:flex-row gap-3 md:gap-4 lg:gap-4 items-center"
-        >
-          <!-- Icon Container -->
-          <img
-            src=`${import.meta.env.ICONS_FOLDER}/safe.svg`
-            alt=""
-            class="w-10 h-10 md:w-14 md:h-14 lg:w-[62px] lg:h-[62px]"
-          />
-
-          <!-- Content -->
-          <div
-            class="flex flex-col gap-1 md:gap-1 lg:gap-0.5 flex-1 text-center md:text-left"
-          >
-            <h3 class="font-semibold text-gray-900 text-18 leading-tight">
-              Safe Security Pro Max+
-            </h3>
-            <p class="text-gray text-16 leading-normal">
-              Don't worry, Your data will be kept private and protected.
-            </p>
-          </div>
-        </div>
-
-        <!-- Personal Information Form -->
-        <div
-          class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
-        >
-          <!-- Section Title -->
-          <div class="flex flex-col gap-4 md:gap-4">
-            <h2
-              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-            >
-              Personal Informations
-            </h2>
-
-            <!-- Form Fields -->
-            <div class="flex flex-col gap-4 md:gap-5 lg:gap-6">
-              <!-- Alert Message -->
-              <Alert
-                type="error"
-                message="Please enter data correctly. We will send the order receipt to your email."
-                class="w-full"
-              />
-              <!-- Full Name Input -->
-              <Input
-                label="Full Name"
-                placeholder="Write your complete name"
-                icon="profile-circle.svg"
-                iconAlt="Profile icon"
-                type="text"
-                name="fullName"
-                class="w-full"
-              />
-
-              <!-- Phone Number Input -->
-              <Input
-                label="Phone no."
-                placeholder="Give us your phone number"
-                icon="call.svg"
-                iconAlt="Phone icon"
-                type="tel"
-                name="phone"
-                class="w-full"
-              />
-
-              <!-- Email Address Input -->
-              <Input
-                label="Email Address"
-                placeholder="Write your email address"
-                icon="sms.svg"
-                iconAlt="Email icon"
-                type="email"
-                name="email"
-                class="w-full"
-              />
-            </div>
-          </div>
-        </div>
-
-        <!-- Workshop Price & Attendants Details -->
-        <div
-          class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
-        >
-          <!-- Workshop Price Section -->
-          <div class="flex flex-col gap-4 md:gap-4">
-            <h2
-              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-            >
-              Workshop Price
-            </h2>
-            <div
-              class="flex flex-col sm:flex-row gap-4 md:gap-6 items-start sm:items-center justify-between"
-            >
-              <!-- Price Display -->
-              <div class="flex items-baseline gap-1">
-                <span
-                  class="font-bold text-red-500 text-2xl md:text-3xl lg:text-[32px] leading-none"
-                >
-                  Rp160.000
-                </span>
-                <span
-                  class="font-semibold text-gray text-sm md:text-base lg:text-base leading-none"
-                >
-                  /person
-                </span>
-              </div>
-
-              <!-- Quantity Selector -->
-              <div
-                class="bg-white border border-gray-200 rounded-lg p-2 md:p-3 flex items-center gap-2 md:gap-3"
-              >
-                <button
-                  class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8 12H16"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </button>
-                <span
-                  class="font-semibold text-black text-lg md:text-xl lg:text-xl text-center w-8 md:w-9"
-                >
-                  2
-                </span>
-                <button
-                  class="w-5 h-5 md:w-6 md:h-6 flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
-                >
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 5V19M5 12H19"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"></path>
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Attendants Details Section -->
-          <div class="flex flex-col gap-4 md:gap-4">
-            <h2
-              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
-            >
-              Attendants Details
-            </h2>
-
-            <div class="flex flex-col gap-4 md:gap-6">
-              <!-- Attendant 1 - Open Accordion -->
-              <div
-                class="border border-gray-200 rounded-xl md:rounded-2xl overflow-hidden"
-              >
-                <input
-                  type="checkbox"
-                  id="attendant-1"
-                  class="hidden peer"
-                  checked
-                />
-                <label
-                  for="attendant-1"
-                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
-                >
-                  <h3
-                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
-                  >
-                    Attendants 1
-                  </h3>
-                  <svg
-                    class="w-5 h-5 md:w-6 md:h-6 text-gray-500 peer-checked:rotate-180 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </label>
-
-                <!-- Accordion Content using CSS Grid -->
-                <div
-                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
-                >
-                  <div class="overflow-hidden">
-                    <div class="p-4 md:p-6 border-t border-gray-200">
-                      <div class="flex flex-col gap-4 md:gap-6">
-                        <!-- Full Name Input -->
-                        <Input
-                          label="Full Name"
-                          placeholder="Attendant Name"
-                          icon="profile-circle.svg"
-                          iconAlt="Profile icon"
-                          type="text"
-                          name="attendant1_fullName"
-                          class="w-full"
-                        />
-
-                        <!-- Occupation Input -->
-                        <Input
-                          label="Occupation"
-                          placeholder="Attendant Status"
-                          icon="briefcase.svg"
-                          iconAlt="Briefcase icon"
-                          type="text"
-                          name="attendant1_occupation"
-                          class="w-full"
-                        />
-
-                        <!-- Email Address Input -->
-                        <Input
-                          label="Email Address"
-                          placeholder="Attendant Email Address"
-                          icon="sms.svg"
-                          iconAlt="Email icon"
-                          type="email"
-                          name="attendant1_email"
-                          class="w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Attendant 2 - Closed Accordion -->
-              <div
-                class="border border-gray-200 rounded-xl md:rounded-2xl overflow-hidden"
-              >
-                <input type="checkbox" id="attendant-2" class="hidden peer" />
-                <label
-                  for="attendant-2"
-                  class="flex items-center justify-between p-4 md:p-6 cursor-pointer hover:bg-gray-50 transition-colors"
-                >
-                  <h3
-                    class="font-semibold text-black text-base md:text-lg lg:text-lg"
-                  >
-                    Attendants 2
-                  </h3>
-                  <svg
-                    class="w-5 h-5 md:w-6 md:h-6 text-gray-500 peer-checked:rotate-180 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </label>
-
-                <!-- Accordion Content using CSS Grid -->
-                <div
-                  class="grid grid-rows-[0fr] peer-checked:grid-rows-[1fr] transition-[grid-template-rows] duration-300 ease-in-out"
-                >
-                  <div class="overflow-hidden">
-                    <div class="p-4 md:p-6 border-t border-gray-200">
-                      <div class="flex flex-col gap-4 md:gap-6">
-                        <!-- Full Name Input -->
-                        <Input
-                          label="Full Name"
-                          placeholder="Attendant Name"
-                          icon="profile-circle.svg"
-                          iconAlt="Profile icon"
-                          type="text"
-                          name="attendant2_fullName"
-                          class="w-full"
-                        />
-
-                        <!-- Occupation Input -->
-                        <Input
-                          label="Occupation"
-                          placeholder="Attendant Status"
-                          icon="briefcase.svg"
-                          iconAlt="Briefcase icon"
-                          type="text"
-                          name="attendant2_occupation"
-                          class="w-full"
-                        />
-
-                        <!-- Email Address Input -->
-                        <Input
-                          label="Email Address"
-                          placeholder="Attendant Email Address"
-                          icon="sms.svg"
-                          iconAlt="Email icon"
-                          type="email"
-                          name="attendant2_email"
-                          class="w-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Payment Details Section -->
         <div
           class="bg-white rounded-xl md:rounded-2xl lg:rounded-3xl p-4 md:p-6 lg:p-8 flex flex-col gap-4 md:gap-6 lg:gap-8"
@@ -695,18 +403,138 @@ const breadcrumbItems = [
             </div>
           </div>
 
+          <!-- Your Bank Account Section -->
+          <div class="flex flex-col gap-4 md:gap-6 lg:gap-4">
+            <h3
+              class="capitalize font-bold text-[#09093c] text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Your Bank Account
+            </h3>
+
+            <div class="flex flex-col gap-4 md:gap-6 lg:gap-6">
+              <!-- Select Bank Type -->
+              <Select
+                label="Select Bank Type"
+                placeholder="Select your bank"
+                icon="bank.svg"
+                name="bankType"
+                required={true}
+                options={[
+                  { value: "bca", label: "BCA" },
+                  { value: "bni", label: "BNI" },
+                  { value: "bri", label: "BRI" },
+                  { value: "mandiri", label: "Mandiri" },
+                  { value: "other", label: "Other" },
+                ]}
+              />
+
+              <!-- Full Name -->
+              <Input
+                label="Full Name"
+                placeholder="Under whose name is this bank account?"
+                icon="profile-circle.svg"
+                name="fullName"
+                type="text"
+                required={true}
+              />
+
+              <!-- Bank Account Number -->
+              <Input
+                label="Bank account number"
+                placeholder="What is the bank account number?"
+                icon="card-edit.svg"
+                name="bankAccountNumber"
+                type="text"
+                required={true}
+              />
+            </div>
+          </div>
+
+          <!-- Transfer Details Section -->
+          <div class="flex flex-col gap-4 md:gap-6 lg:gap-4">
+            <h3
+              class="capitalize font-bold text-[#09093c] text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Transfer Details
+            </h3>
+
+            <div
+              class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl overflow-hidden"
+            >
+              <!-- Header -->
+              <div
+                class="bg-white border-b border-[#e6e7eb] px-4 md:px-8 lg:px-8 py-3 md:py-4 lg:py-4"
+              >
+                <h4
+                  class="capitalize font-semibold text-[#09093c] text-base md:text-lg lg:text-lg text-center"
+                >
+                  Transfer Bank
+                </h4>
+              </div>
+
+              <!-- Bank Options -->
+              <div
+                class="p-4 md:p-8 lg:p-8 flex flex-col gap-6 md:gap-8 lg:gap-8"
+              >
+                {
+                  bankOptions.map((bank) => (
+                    <div class="flex items-center flex-wrap gap-6 md:gap-8 lg:gap-8">
+                      <div class="w-16 h-8 md:w-20 md:h-10 lg:w-20 lg:h-10 flex-shrink-0">
+                        <img
+                          src={`${import.meta.env.IMG_FOLDER}/${bank.image}`}
+                          alt={`${bank.name} Bank`}
+                          class="w-full h-full object-contain"
+                        />
+                      </div>
+                      <div class="flex-1 flex flex-col gap-0.5">
+                        <p class="font-medium text-[#757c98] text-sm md:text-base lg:text-base">
+                          {bank.name}
+                        </p>
+                        <p class="font-semibold text-[#09093c] text-base md:text-lg lg:text-lg">
+                          {bank.accountNumber}
+                        </p>
+                      </div>
+                      <button
+                        type="button"
+                        class="font-semibold text-[#fc9b4c] text-base md:text-lg lg:text-lg hover:text-[#e8893a] transition-colors copy-btn"
+                        data-account={bank.accountNumber}
+                      >
+                        Copy
+                      </button>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          <!-- Upload Proof of Payment Section -->
+          <div class="flex flex-col gap-4 md:gap-6 lg:gap-4">
+            <h3
+              class="capitalize font-bold text-[#09093c] text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Upload Proof of Payment
+            </h3>
+
+            <UploadImage
+              placeholder="Upload Proof of Payment"
+              name="proofOfPayment"
+              accept="image/*"
+              required={true}
+              maxSize={5}
+            />
+          </div>
+
           <!-- Pay Now Button -->
           <div class="w-full">
-            <a href={`${import.meta.env.ROOT_FOLDER}/confirmation-payment`}>
-              <Button
-                variant="orange"
-                size="large"
-                type="submit"
-                class="w-full text-center justify-center rounded-xl"
-              >
-                Pay Now
-              </Button>
-            </a>
+            <Button
+              variant="orange"
+              size="large"
+              type="submit"
+              class="w-full text-center justify-center rounded-xl"
+            >
+              Continue to Checkout
+            </Button>
           </div>
         </div>
       </div>
@@ -715,3 +543,49 @@ const breadcrumbItems = [
     <Footer />
   </div>
 </BaseLayout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Copy functionality for bank account numbers
+    const copyButtons = document.querySelectorAll(".copy-btn");
+
+    copyButtons.forEach((button) => {
+      button.addEventListener("click", async function () {
+        const accountNumber = this.getAttribute("data-account");
+        const originalText = this.textContent;
+
+        try {
+          await navigator.clipboard.writeText(accountNumber);
+
+          // Change text to "Copy Success"
+          this.textContent = "Copied";
+          this.classList.add("text-green-600");
+
+          // Reset after 2 seconds
+          setTimeout(() => {
+            this.textContent = originalText;
+            this.classList.remove("text-green-600");
+          }, 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          const textArea = document.createElement("textarea");
+          textArea.value = accountNumber;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand("copy");
+          document.body.removeChild(textArea);
+
+          // Change text to "Copy Success"
+          this.textContent = "Copied";
+          this.classList.add("text-green-600");
+
+          // Reset after 2 seconds
+          setTimeout(() => {
+            this.textContent = originalText;
+            this.classList.remove("text-green-600");
+          }, 2000);
+        }
+      });
+    });
+  });
+</script>

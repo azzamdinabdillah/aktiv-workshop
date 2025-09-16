@@ -1,0 +1,124 @@
+---
+export interface Props {
+  label?: string;
+  placeholder?: string;
+  icon?: string;
+  iconAlt?: string;
+  name?: string;
+  id?: string;
+  value?: string;
+  required?: boolean;
+  disabled?: boolean;
+  error?: string;
+  class?: string;
+  options?: Array<{ value: string; label: string }>;
+}
+
+const {
+  label,
+  placeholder = "Select an option",
+  icon,
+  iconAlt = "Icon",
+  name,
+  id,
+  value,
+  required = false,
+  disabled = false,
+  error,
+  class: className = "",
+  options = [],
+  ...rest
+} = Astro.props;
+
+const selectId =
+  id || name || `select-${Math.random().toString(36).substr(2, 9)}`;
+const hasError = !!error;
+---
+
+<div class={`flex flex-col gap-2 md:gap-3 lg:gap-4 w-full ${className}`}>
+  {
+    label && (
+      <label
+        for={selectId}
+        class="capitalize font-medium text-gray text-sm md:text-base lg:text-base leading-tight"
+      >
+        {label}
+        {required && <span class="text-red">*</span>}
+      </label>
+    )
+  }
+
+  <div
+    class={`
+    bg-[#fbfbfb] border border-transparent rounded-lg md:rounded-xl lg:rounded-xl
+    flex items-center gap-2 md:gap-3 lg:gap-2 p-3 md:p-4 lg:p-4
+    transition-all duration-300 ease-in-out
+    ${
+      hasError
+        ? "border-red bg-red/5"
+        : "hover:border-blue/30 focus-within:border-blue focus-within:bg-white focus-within:shadow-sm"
+    }
+    ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+  `}
+  >
+    {
+      icon && (
+        <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6">
+          <img
+            src={`${import.meta.env.ICONS_FOLDER}/${icon}`}
+            alt={iconAlt}
+            class="w-full h-full object-contain"
+          />
+        </div>
+      )
+    }
+
+    <select
+      id={selectId}
+      name={name}
+      value={value}
+      required={required}
+      disabled={disabled}
+      class={`
+        flex-1 bg-transparent border-none outline-none
+        font-medium text-black text-18 w-0
+        cursor-pointer appearance-none translate-y-[1.5px]
+        ${disabled ? "cursor-not-allowed" : ""}
+      `}
+      {...rest}
+    >
+      <option value="" disabled selected>
+        {placeholder}
+      </option>
+      {
+        options.map((option) => (
+          <option value={option.value}>{option.label}</option>
+        ))
+      }
+    </select>
+
+    <!-- Custom dropdown arrow -->
+    <div class="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 lg:w-6 lg:h-6">
+      <svg
+        class="w-full h-full text-gray"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </div>
+
+  {
+    error && (
+      <p class="text-red text-sm md:text-base lg:text-base font-medium leading-tight">
+        {error}
+      </p>
+    )
+  }
+</div>
