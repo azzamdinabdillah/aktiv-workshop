@@ -527,21 +527,23 @@ const bankOptions = [
 
           <!-- Pay Now Button -->
           <div class="w-full">
-            <Button
-              variant="orange"
-              size="large"
-              type="submit"
-              class="w-full text-center justify-center rounded-xl"
-            >
-              Continue to Checkout
-            </Button>
+            <a href={`${import.meta.env.ROOT_FOLDER}/payment-success`}>
+              <Button
+                variant="orange"
+                size="large"
+                type="submit"
+                class="w-full text-center justify-center rounded-xl"
+              >
+                Continue to Checkout
+              </Button>
+            </a>
           </div>
         </div>
       </div>
     </div>
-
-    <Footer />
   </div>
+
+  <Footer />
 </BaseLayout>
 
 <script>

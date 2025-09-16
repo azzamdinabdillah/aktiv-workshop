@@ -1,0 +1,93 @@
+---
+import Button from "../components/Button.astro";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Booking Workshop">
+  <div class="bg-gray-blue">
+    <Navbar />
+
+    <!-- Payment Success Section -->
+    <div class="flex flex-col gap-4 md:gap-6 lg:gap-8 items-center justify-center px-4 py-10 pt-[100px] md:pt-[120px] lg:pt-[160px]">
+      <div
+        class="bg-white rounded-3xl p-6 md:p-8 lg:p-8 w-full max-w-[856px]"
+      >
+        <!-- Success Icon and Title -->
+        <div
+          class="flex flex-col items-center gap-4 md:gap-6 lg:gap-6 mb-6 md:mb-8 lg:mb-8"
+        >
+          <!-- Success Icon -->
+          <div
+            class="w-12 h-12 md:w-16 md:h-16 lg:w-18 lg:h-18 flex items-center justify-center"
+          >
+            <img
+              src={`${import.meta.env.ICONS_FOLDER}/receipt-2.svg`}
+              alt="Success"
+            />
+          </div>
+
+          <!-- Success Title -->
+          <h1
+            class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 text-center leading-tight"
+          >
+            Booking Success, well done 🙌🏻
+          </h1>
+        </div>
+
+        <!-- Booking Details Card -->
+        <div class="flex flex-col gap-4 md:gap-6 lg:gap-6">
+          <!-- Booking ID Card -->
+          <div
+            class="bg-white border border-gray-200 rounded-xl md:rounded-full pl-4 md:pl-6 pr-3 lg:pl-8 py-3 flex flex-col md:flex-row lg:flex-row items-center gap-3 md:gap-4 lg:gap-6"
+          >
+            <!-- Booking ID Info -->
+            <div class="flex items-center gap-2 md:gap-3 lg:gap-3 flex-1">
+              <!-- Receipt Icon -->
+              <div
+                class="w-6 h-6 md:w-8 md:h-8 lg:w-8 lg:h-8 flex items-center justify-center"
+              >
+                <img src={`${import.meta.env.ICONS_FOLDER}/receipt.svg`} alt="Receipt" />
+              </div>
+
+              <!-- Booking ID Text -->
+              <span
+                class="text-sm md:text-base lg:text-lg font-medium text-gray-500"
+              >
+                Booking ID:
+              </span>
+
+              <!-- Booking ID Value -->
+              <span
+                class="text-sm md:text-base lg:text-lg font-bold text-gray-900"
+              >
+                H4L04CTIVE
+              </span>
+            </div>
+
+            <!-- View Booking Button -->
+            <Button
+              variant="orange"
+              size="large"
+              class="w-full md:w-auto lg:w-auto rounded-xl md:rounded-full"
+            >
+              View My Booking
+            </Button>
+          </div>
+
+          <!-- Confirmation Message -->
+          <p
+            class="text-sm md:text-base lg:text-base font-medium text-gray-500 text-center leading-[160%]"
+          >
+            Your workshop booking is confirmed. We will check the payment and
+            send the receipt to your email address
+          </p>
+        </div>
+      </div>
+      <a href={`${import.meta.env.ROOT_FOLDER}`} class="text-16 hover:text-underline text-black font-semibold">Back to Homepage</a>
+    </div>
+
+    <Footer />
+  </div>
+</BaseLayout>
