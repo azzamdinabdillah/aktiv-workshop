@@ -285,7 +285,99 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </div>
 
       <div class="flex flex-col gap-4 md:gap-6 lg:gap-8">
-        <!-- Status + Booking Details Combined Card -->
+        <!-- Status Success + Booking Details Combined Card -->
+        <div
+          class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
+        >
+          <!-- Yellow banner -->
+          <div
+            class="bg-[#D4EAE8] p-4 md:p-6 lg:p-8 flex gap-3 md:gap-4 lg:gap-4 items-center"
+          >
+            <div class="bg-green p-3 md:p-4 lg:p-4 rounded-full flex-shrink-0">
+              <img
+                src={`${import.meta.env.ICONS_FOLDER}/empty-wallet-tick.svg`}
+                alt="Timer icon"
+                class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+              />
+            </div>
+            <div class="flex flex-col gap-px md:gap-1">
+              <h3
+                class="font-semibold text-black text-base md:text-lg lg:text-lg"
+              >
+                Status Payment Success!
+              </h3>
+              <p
+                class="font-medium text-[#58938E] text-sm md:text-base lg:text-base"
+              >
+                Your order is confirmed. We appreciate your patience.
+              </p>
+            </div>
+          </div>
+          <!-- Booking details body -->
+          <div class="p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8">
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Booking Details
+            </h2>
+            <div
+              class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl p-4 md:p-6 lg:p-6 flex flex-col gap-4 md:gap-4"
+            >
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Booking ID</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >H4L04CT1VE</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Quantity</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >2</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Price</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >Rp160.000</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >PPN 11%</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >Rp5.000</span
+                >
+              </div>
+              <div class="border-t border-[#e6e7eb] my-2 md:my-2 lg:my-2"></div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Total Price</span
+                >
+                <span
+                  class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                  >Rp319.680</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Status Pending + Booking Details Combined Card -->
         <div
           class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
         >
@@ -312,6 +404,99 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 class="font-medium text-[#b4a476] text-sm md:text-base lg:text-base"
               >
                 Your order is pending. Please wait a few minutes for review.
+              </p>
+            </div>
+          </div>
+          <!-- Booking details body -->
+          <div class="p-4 md:p-6 lg:p-8 flex flex-col gap-6 md:gap-8">
+            <h2
+              class="capitalize font-bold text-black text-lg md:text-xl lg:text-xl leading-tight"
+            >
+              Booking Details
+            </h2>
+            <div
+              class="bg-white border border-[#e6e7eb] rounded-xl md:rounded-2xl lg:rounded-2xl p-4 md:p-6 lg:p-6 flex flex-col gap-4 md:gap-4"
+            >
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Booking ID</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >H4L04CT1VE</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Quantity</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >2</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Price</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >Rp160.000</span
+                >
+              </div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >PPN 11%</span
+                >
+                <span
+                  class="font-semibold text-black text-base md:text-lg lg:text-lg"
+                  >Rp5.000</span
+                >
+              </div>
+              <div class="border-t border-[#e6e7eb] my-2 md:my-2 lg:my-2"></div>
+              <div class="flex justify-between items-center">
+                <span
+                  class="font-medium text-[#757c98] text-sm md:text-base lg:text-base"
+                  >Total Price</span
+                >
+                <span
+                  class="font-semibold text-[#eb5757] text-base md:text-lg lg:text-lg"
+                  >Rp319.680</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status Failed + Booking Details Combined Card -->
+        <div
+          class="bg-white rounded-2xl md:rounded-3xl lg:rounded-3xl overflow-hidden"
+        >
+          <!-- Yellow banner -->
+          <div
+            class="bg-[#FEE3E3] p-4 md:p-6 lg:p-8 flex gap-3 md:gap-4 lg:gap-4 items-center"
+          >
+            <div class="bg-red p-3 md:p-4 lg:p-4 rounded-full flex-shrink-0">
+              <img
+                src={`${import.meta.env.ICONS_FOLDER}/empty-wallet-remove.svg`}
+                alt="Timer icon"
+                class="w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+              />
+            </div>
+            <div class="flex flex-col gap-px md:gap-1">
+              <h3
+                class="font-semibold text-black text-base md:text-lg lg:text-lg"
+              >
+                Status Payment Failed!
+              </h3>
+              <p
+                class="font-medium text-[#B77878] text-sm md:text-base lg:text-base"
+              >
+                Your order was unsuccessful. Please attempt again.
               </p>
             </div>
           </div>
