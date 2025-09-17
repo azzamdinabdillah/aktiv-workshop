@@ -22,9 +22,9 @@ import Button from "./Button.astro";
     <!-- Desktop Navigation -->
     <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
       <a href={`${import.meta.env.ROOT_FOLDER}/view-booking`} class="hover:text-black transition-colors">View My Booking</a>
-      <a href="" class="hover:text-black transition-colors">Workshop</a>
-      <a href="" class="hover:text-black transition-colors">Community</a>
-      <a href="" class="hover:text-black transition-colors">Testimone</a>
+      <a href={`${import.meta.env.ROOT_FOLDER}#workshop`} class="hover:text-black transition-colors">Workshop</a>
+      <a href={`${import.meta.env.ROOT_FOLDER}#community`} class="hover:text-black transition-colors">Community</a>
+      <a href={`${import.meta.env.ROOT_FOLDER}#testimone`} class="hover:text-black transition-colors">Testimone</a>
     </div>
 
     <!-- Desktop Contact Button -->
@@ -102,19 +102,19 @@ import Button from "./Button.astro";
         View My Booking
       </a>
       <a
-        href=""
+        href={`${import.meta.env.ROOT_FOLDER}#workshop`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Workshop
       </a>
       <a
-        href=""
+        href={`${import.meta.env.ROOT_FOLDER}#community`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Community
       </a>
       <a
-        href=""
+        href={`${import.meta.env.ROOT_FOLDER}#testimone`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Testimone
