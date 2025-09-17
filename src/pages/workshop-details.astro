@@ -163,7 +163,7 @@ const breadcrumbItems = [
               </p>
               <button
                 id="read-more-btn"
-                class="text-[#0268fb] font-semibold hover:underline ml-1"
+                class="text-[#0268fb] font-semibold hover:underline cursor-pointer"
               >
                 Read more...
               </button>
@@ -398,26 +398,4 @@ const breadcrumbItems = [
 
     <Footer />
   </div>
-
-  <script>
-    // Initialize with truncated text
-    document.addEventListener("DOMContentLoaded", function () {
-      const descriptionText = document.getElementById("description-text");
-      const readMoreBtn = document.getElementById("read-more-btn");
-
-      // Add line clamp initially
-      descriptionText.classList.add("line-clamp-4");
-
-      // Add click event listener
-      readMoreBtn.addEventListener("click", function () {
-        if (descriptionText.classList.contains("line-clamp-4")) {
-          descriptionText.classList.remove("line-clamp-4");
-          readMoreBtn.textContent = "Read less...";
-        } else {
-          descriptionText.classList.add("line-clamp-4");
-          readMoreBtn.textContent = "Read more...";
-        }
-      });
-    });
-  </script>
 </BaseLayout>

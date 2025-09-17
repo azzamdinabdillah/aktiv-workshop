@@ -1,4 +1,6 @@
 ---
+import Button from "../../Button.astro";
+
 // Benefits data
 const benefits = [
   {
@@ -50,15 +52,19 @@ const benefits = [
         Revitalize your daily routine with powerful productivity 💪
       </h1>
 
-      <button
+      <div
         class="rounded-full text-white p-2 md:p-3 lg:p-4 w-fit bg-white/10"
       >
-        <div
-          class="px-5 py-2.5 md:px-7 md:py-3.5 lg:px-9 lg:py-4 bg-orange rounded-full text-sm md:text-base lg:text-lg font-semibold"
+        <Button
+          variant="orange"
+          size="large"
+          icon="white-orange-arrow-right.svg"
+          href="#"
+          class="inline-flex items-center gap-3"
         >
-          Get Started &gt;
-        </div>
-      </button>
+          Get Started
+        </Button>
+      </div>
     </div>
     <div class="">
       <img
