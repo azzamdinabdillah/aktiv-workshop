@@ -13,15 +13,25 @@
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <link rel="stylesheet" href="/src/styles/global.css" />
+    <link
+      rel="stylesheet"
+      href=`${import.meta.env.ROOT_FOLDER}/src/styles/output.css`
+      is:inline
+    />
     <title>{Astro.props.title} | Activ Workshop</title>
   </head>
   <body>
     <slot />
 
-    <script src="/src/scripts/copy-bank-number.js"></script>
+    <script src="/src/scripts/copy-bank-number.js" is:inline></script>
+    <script src="/src/scripts/read-more-description.js" is:inline></script>
+    <script src="/src/scripts/testimonial-slider.js" is:inline></script>
+    <script src="/src/scripts/navbar.js" is:inline></script>
+    <script src="/src/scripts/upload-file.js" is:inline></script>
+    <!-- <script src="/src/scripts/copy-bank-number.js"></script>
     <script src="/src/scripts/read-more-description.js"></script>
     <script src="/src/scripts/testimonial-slider.js"></script>
     <script src="/src/scripts/navbar.js"></script>
-    <script src="/src/scripts/upload-file.js"></script>
+    <script src="/src/scripts/upload-file.js"></script> -->
   </body>
 </html>
