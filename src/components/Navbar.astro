@@ -10,7 +10,10 @@ import Button from "./Button.astro";
     class="flex justify-between items-center px-6 py-5 lg:p-[32px] max-w-[1216px] xl:px-0 mx-auto"
   >
     <!-- Logo Section -->
-    <a href={`${import.meta.env.ROOT_FOLDER}`} class="flex gap-2 items-center">
+    <a
+      href={`${import.meta.env.ROOT_HREF_PAGES}`}
+      class="flex gap-2 items-center"
+    >
       <img
         src={`${import.meta.env.ICONS_FOLDER}/logo.svg`}
         alt="Logo"
@@ -21,10 +24,22 @@ import Button from "./Button.astro";
 
     <!-- Desktop Navigation -->
     <div class="hidden lg:flex gap-32 text-16 font-medium text-gray">
-      <a href={`${import.meta.env.ROOT_FOLDER}/view-booking`} class="hover:text-black transition-colors">View My Booking</a>
-      <a href={`${import.meta.env.ROOT_FOLDER}#workshop`} class="hover:text-black transition-colors">Workshop</a>
-      <a href={`${import.meta.env.ROOT_FOLDER}#community`} class="hover:text-black transition-colors">Community</a>
-      <a href={`${import.meta.env.ROOT_FOLDER}#testimone`} class="hover:text-black transition-colors">Testimone</a>
+      <a
+        href={`${import.meta.env.ROOT_HREF_PAGES}/view-booking`}
+        class="hover:text-black transition-colors">View My Booking</a
+      >
+      <a
+        href={`${import.meta.env.ROOT_HREF_PAGES}#workshop`}
+        class="hover:text-black transition-colors">Workshop</a
+      >
+      <a
+        href={`${import.meta.env.ROOT_HREF_PAGES}#community`}
+        class="hover:text-black transition-colors">Community</a
+      >
+      <a
+        href={`${import.meta.env.ROOT_HREF_PAGES}#testimone`}
+        class="hover:text-black transition-colors">Testimone</a
+      >
     </div>
 
     <!-- Desktop Contact Button -->
@@ -96,25 +111,25 @@ import Button from "./Button.astro";
   <nav class="px-8 pb-8">
     <div class="flex flex-col space-y-1">
       <a
-        href={`${import.meta.env.ROOT_FOLDER}/view-booking`}
+        href={`${import.meta.env.ROOT_HREF_PAGES}/view-booking`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         View My Booking
       </a>
       <a
-        href={`${import.meta.env.ROOT_FOLDER}#workshop`}
+        href={`${import.meta.env.ROOT_HREF_PAGES}#workshop`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Workshop
       </a>
       <a
-        href={`${import.meta.env.ROOT_FOLDER}#community`}
+        href={`${import.meta.env.ROOT_HREF_PAGES}#community`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Community
       </a>
       <a
-        href={`${import.meta.env.ROOT_FOLDER}#testimone`}
+        href={`${import.meta.env.ROOT_HREF_PAGES}#testimone`}
         class="text-lg font-medium text-gray-700 hover:text-black hover:bg-gray-50 transition-all duration-200 py-3 px-4 rounded-lg"
       >
         Testimone
@@ -135,5 +150,3 @@ import Button from "./Button.astro";
     </Button>
   </div>
 </div>
-
-

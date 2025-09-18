@@ -23,11 +23,12 @@
   <body>
     <slot />
 
-    <script src="/src/scripts/copy-bank-number.js" is:inline></script>
-    <script src="/src/scripts/read-more-description.js" is:inline></script>
-    <script src="/src/scripts/testimonial-slider.js" is:inline></script>
-    <script src="/src/scripts/navbar.js" is:inline></script>
-    <script src="/src/scripts/upload-file.js" is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/copy-bank-number.js` is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/read-more-description.js` is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/testimonial-slider.js` is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/navbar.js` is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/upload-file.js` is:inline></script>
+    <script src=`${import.meta.env.ROOT_FOLDER}/src/scripts/fix-href.js` is:inline></script>
     <!-- <script src="/src/scripts/copy-bank-number.js"></script>
     <script src="/src/scripts/read-more-description.js"></script>
     <script src="/src/scripts/testimonial-slider.js"></script>

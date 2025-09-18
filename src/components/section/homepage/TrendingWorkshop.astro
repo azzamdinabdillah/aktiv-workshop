@@ -117,7 +117,7 @@ const workshops = [
     <div class="flex gap-4 overflow-x-auto pb-4 md:hidden scrollbar-hide">
       {
         workshops.map((workshop) => (
-          <a href=`${import.meta.env.ROOT_FOLDER}/workshop-details` class="cursor-pointer" style="display: contents;">
+          <a href=`${import.meta.env.ROOT_HREF_PAGES}/workshop-details.html` class="cursor-pointer" style="display: contents;">
           <WorkshopCard
             id={workshop.id}
             instructorName={workshop.instructorName}
@@ -140,7 +140,7 @@ const workshops = [
     <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
       {
         workshops.map((workshop) => (
-          <a href=`${import.meta.env.ROOT_FOLDER}/workshop-details`>
+          <a href=`${import.meta.env.ROOT_HREF_PAGES}/workshop-details.html`>
             <WorkshopCard
               id={workshop.id}
               instructorName={workshop.instructorName}
